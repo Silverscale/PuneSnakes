@@ -2,25 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerInput : MonoBehaviour, ISnakeController   {
  
     public GameObject bodyChunk;
 
-    public int PlayerNumber    {
-        get; private set;
-    }
+    private int playerNumber;
 
     private Transform body;
     private readonly string wallTag = "Obstacle";
 
     public void Awake()
     {
-        PlayerNumber = FindObjectsOfType<PlayerController>().Length;
-        Debug.Log("Created player " + PlayerNumber);
+        playerNumber = FindObjectsOfType<PlayerInput>().Length;
+        Debug.Log("Created player " + playerNumber);
         body = GameObject.Instantiate(bodyChunk, gameObject.transform, false).GetComponent<Transform>();
     }
 
+    public int PlayerNumber() {
+        return playerNumber;
+    }
 
+    public float GetInput() {
+        return Input.GetAxis("Player" + playerNumber);
+    }
+
+    /*
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(wallTag))
@@ -28,4 +34,5 @@ public class PlayerController : MonoBehaviour {
             gameObject.SetActive(false);
         }
     }
+    */
 }

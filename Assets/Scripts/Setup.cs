@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Setup : MonoBehaviour {
 
-    public PlayerController playerPrefab;
+    public PlayerInput playerPrefab;
     public Transform[] spawnPoint;
     //public Collider headCollider;
     //public Collider bodyCollider;
