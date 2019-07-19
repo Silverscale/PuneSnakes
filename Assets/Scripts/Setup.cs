@@ -23,6 +23,7 @@ public class Setup : MonoBehaviour {
 
             player.position = spawnPoint[i].position;
             player.rotation = spawnPoint[i].rotation;
+            Debug.Log("rotation set to: " + player.rotation);
 
         }
     }

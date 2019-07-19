@@ -23,9 +23,7 @@ public class SnakeMovement : MonoBehaviour
         if (input != 0)
         {
             myRigidbody2D.SetRotation(myRigidbody2D.rotation - input * turnSpeed * Time.fixedDeltaTime);
-            //gameObject.transform.Rotate(Vector3.up, turnSpeed * input * Time.fixedDeltaTime);
         }
-        myRigidbody2D.velocity = transform.forward * moveSpeed * Time.fixedDeltaTime;
-        //gameObject.transform.localPosition += gameObject.transform.forward * moveSpeed * Time.fixedDeltaTime;
+        myRigidbody2D.velocity = transform.up * moveSpeed * Time.fixedDeltaTime;
     }
 }
