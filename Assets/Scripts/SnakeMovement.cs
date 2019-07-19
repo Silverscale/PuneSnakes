@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SnakeMovement : MonoBehaviour
 {
-    public float moveSpeed = 1;
-    public float turnSpeed = 150;
+    [SerializeField] private float moveSpeed = 1;
+    [SerializeField] private float turnSpeed = 150;
 
     private ISnakeController myController;
     private Rigidbody2D myRigidbody2D;
@@ -22,7 +22,7 @@ public class SnakeMovement : MonoBehaviour
         float input = myController.GetInput();
         if (input != 0)
         {
-            myRigidbody2D.SetRotation(myRigidbody2D.rotation + input * turnSpeed * Time.fixedDeltaTime);
+            myRigidbody2D.SetRotation(myRigidbody2D.rotation - input * turnSpeed * Time.fixedDeltaTime);
             //gameObject.transform.Rotate(Vector3.up, turnSpeed * input * Time.fixedDeltaTime);
         }
         myRigidbody2D.velocity = transform.forward * moveSpeed * Time.fixedDeltaTime;
