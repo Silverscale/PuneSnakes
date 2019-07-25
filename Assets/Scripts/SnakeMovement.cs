@@ -11,6 +11,9 @@ public class SnakeMovement : MonoBehaviour
     private Rigidbody2D myRigidbody2D;
 
     private void Awake() {
+        moveSpeed = GameOptions.forward;
+        turnSpeed = GameOptions.turning;
+
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myController = GetComponent<ISnakeController>();
         Debug.Log("Player " + myController.PlayerNumber() +

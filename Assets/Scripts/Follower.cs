@@ -39,7 +39,7 @@ public class Follower : MonoBehaviour
 
     public void InitializeSteps(Vector2 target) {
         steps = new Queue<Vector2>();
-        for (int i = 0; i < stepsBehind; i++) {
+        for (int i = 0; i < GameOptions.framesBehind; i++) {
             Vector2 newStep = Vector2.Lerp(transform.position, target, (float)i / (float)stepsBehind);
             //Debug.Log("Adding step: " + newStep);
             steps.Enqueue(newStep);

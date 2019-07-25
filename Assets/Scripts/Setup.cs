@@ -6,20 +6,15 @@ public class Setup : MonoBehaviour {
 
     public Player playerPrefab;
     public Transform[] spawnPoint;
-    //public Collider headCollider;
-    //public Collider bodyCollider;
 
     private Transform player;
 
 	// Use this for initialization
 	void Start ()
     {
-
-        for (int i = 0; i < spawnPoint.Length; i++)
+        for (int i = 0; i < GameOptions.players; i++)
         {
             player = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Transform>();
-            //bodyCollider.enabled = false;
-            //headCollider.enabled = true;
 
             player.position = spawnPoint[i].position;
             player.rotation = spawnPoint[i].rotation;
@@ -27,5 +22,4 @@ public class Setup : MonoBehaviour {
 
         }
     }
-	
 }

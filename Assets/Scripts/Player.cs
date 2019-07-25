@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        autoExpandCDInSeconds = GameOptions.delay;
         myMovement = GetComponent<SnakeMovement>();
         if (shouldAutoExpand) {
             expanding = StartCoroutine(AutoExpand());
