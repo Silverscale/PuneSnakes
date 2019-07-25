@@ -5,21 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Loader : MonoBehaviour
 {
-    static public Loader instance;
     [SerializeField] private float delayAtSplash = 3f;
 
-    private void Awake()
-    {
-        if (!instance)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        } else
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
 
     public void MainMenu(float delay)
     {
