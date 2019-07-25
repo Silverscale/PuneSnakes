@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject bodyChunk;
     private readonly string wallTag = "Obstacle";
     private int playerNumber;
     private Follower follower;
+    [SerializeField] private bool shouldAutoExpand = true;
+    [SerializeField] private float autoExpandCDInSeconds = 2f;
+    private bool alive = true;
 
-    //private Transform body;
+    public Follower bodyChunk;
+    private Coroutine expanding;
+    private SnakeMovement myMovement;
 
-    // Start is called before the first frame update
     void Start()
     {
-
-        //body = GameObject.Instantiate(bodyChunk, gameObject.transform, false).GetComponent<Transform>();
-        StartCoroutine(SpawnChunks());
+        myMovement = GetComponent<SnakeMovement>();
+        if (shouldAutoExpand) {
+            expanding = StartCoroutine(AutoExpand());
+        }
     }
 
     void FixedUpdate() {
@@ -25,32 +29,44 @@ public class Player : MonoBehaviour
         }
     }
 
-    //Para testear el funcionamiento de los followers.
-    private IEnumerator SpawnChunks() {
+    private IEnumerator AutoExpand() {
         do {
-            yield return new WaitForSeconds(3f);
-            Follower newFollower = GameObject.Instantiate(bodyChunk, transform.parent, false).GetComponent<Follower>();
-            Debug.Log("Creating new follower");
-            if (follower) {
-                follower.AddFollower(newFollower);
-                Debug.Log("Follower exists, passing it along");
-            }
-            else {
-                follower = newFollower;
-                follower.InitializeSteps(transform.position);
-                Debug.Log("First follower, assigned and initialized");
-            }
+            yield return new WaitForSeconds(autoExpandCDInSeconds);
+            SpawnFollower();
         } while (true);
     }
 
-    /*
-void OnTriggerEnter(Collider other)
-{
-    if (other.CompareTag(wallTag))
-    {
-        gameObject.SetActive(false);
+    private void SpawnFollower() {
+        Follower newFollower = GameObject.Instantiate<Follower>(bodyChunk, TailPosition(), Quaternion.identity, transform.parent);
+        if (follower) {
+            follower.AddFollower(newFollower);
+        }
+        else {
+            follower = newFollower;
+            follower.InitializeSteps(transform.position);
+        }
     }
-}
-*/
 
+    private Vector2 TailPosition() {
+        Vector2 position = transform.position;
+        if (follower) {
+            position = follower.GetLastFollowerPosition();
+        }
+        return position;
+    }
+
+    void OnTriggerEnter2D(Collider2D col) {
+        Debug.Log("Checking collision");
+        if(alive && col.gameObject != follower.gameObject)
+        this.Kill();
+    }
+
+    public void Kill() {
+        if (alive) {
+            myMovement.Stop();
+            follower.StopAll();
+            StopCoroutine(expanding);
+            alive = false;
+        }
+    }
 }

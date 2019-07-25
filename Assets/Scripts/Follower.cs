@@ -7,13 +7,17 @@ public class Follower : MonoBehaviour
     private Follower nextInLine;
     private Queue<Vector2> steps;
     [SerializeField] private int stepsBehind = 100;
+    private bool following = true;
 
 
     void FixedUpdate()
     {
         Vector2 nextStep = steps.Dequeue();
-        transform.position = nextStep;
-        //transform.LookAt(steps.Peek());
+        if (following) {
+            transform.position = nextStep;
+            //TODO rotation;
+        }
+
         if (nextInLine) {
             nextInLine.AddStep(transform.position);
         }
@@ -37,8 +41,29 @@ public class Follower : MonoBehaviour
         steps = new Queue<Vector2>();
         for (int i = 0; i < stepsBehind; i++) {
             Vector2 newStep = Vector2.Lerp(transform.position, target, (float)i / (float)stepsBehind);
-            Debug.Log("Adding step: " + newStep);
+            //Debug.Log("Adding step: " + newStep);
             steps.Enqueue(newStep);
         }
+    }
+    public void Stop() {
+        following = false;
+        Debug.Log(this.name + " is stopping.");
+    }
+    public void StopAll() {
+        Stop();
+        if (nextInLine) {
+            nextInLine.StopAll();
+        }
+    }
+
+    public Vector2 GetLastFollowerPosition() {
+        Vector2 position = new Vector2();
+        if (nextInLine) {
+            position = nextInLine.GetLastFollowerPosition();
+        }
+        else {
+            position = transform.position;
+        }
+        return position;
     }
 }

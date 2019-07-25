@@ -26,4 +26,9 @@ public class SnakeMovement : MonoBehaviour
         }
         myRigidbody2D.velocity = transform.up * moveSpeed * Time.fixedDeltaTime;
     }
+
+    public void Stop() {
+        moveSpeed = 0;
+        turnSpeed = 0;
+    }
 }
