@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class GameOptions : MonoBehaviour
 {
+    private readonly string PLAYERS_KEY = "players";
+    private readonly string DELAY_KEY = "delay";
+    private readonly string FRAMES_BEHIND_KEY = "framesBehind";
+    private readonly string FORWARD_KEY = "forward";
+    private readonly string TURNING_KEY = "turning";
+
     public static int players;
     public static float delay;
     public static int framesBehind;
@@ -23,32 +29,13 @@ public class GameOptions : MonoBehaviour
     {
         LoadOptions();
     }
-    public void SetPlayers() {
-        players = (int)playerSlider.value;
-    }
-
-    public void SetDelay() {
-        delay = delaySlider.value;
-    }
-
-    public void SetFramesBehind() {
-        framesBehind = (int)framesBehindSlider.value;
-    }
-
-    public void SetForward() {
-        forward = forwardSlider.value;
-    }
-
-    public void SetTurning() {
-        turning = turningSlider.value;
-    }
 
     public void SetOptions() {
-        SetPlayers();
-        SetDelay();
-        SetFramesBehind();
-        SetForward();
-        SetTurning();
+        players = (int)playerSlider.value;
+        delay = delaySlider.value;
+        framesBehind = (int)framesBehindSlider.value;
+        forward = forwardSlider.value;
+        turning = turningSlider.value;
     }
 
     /*On macOS PlayerPrefs are stored in ~/Library/Preferences folder, 
@@ -59,47 +46,56 @@ public class GameOptions : MonoBehaviour
 
     public void SaveOptions()
     {
-        PlayerPrefs.SetFloat("player", playerSlider.value);
-        PlayerPrefs.SetFloat("delay", delaySlider.value);
-        PlayerPrefs.SetFloat("framesBehind", framesBehindSlider.value);
-        PlayerPrefs.SetFloat("forward", forwardSlider.value);
-        PlayerPrefs.SetFloat("turning", turningSlider.value);
+        Debug.Log("***** Saving options *****");
+        PlayerPrefs.SetFloat(PLAYERS_KEY, playerSlider.value);
+        PlayerPrefs.SetFloat(DELAY_KEY, delaySlider.value);
+        PlayerPrefs.SetFloat(FRAMES_BEHIND_KEY, framesBehindSlider.value);
+        PlayerPrefs.SetFloat(FORWARD_KEY, forwardSlider.value);
+        PlayerPrefs.SetFloat(TURNING_KEY, turningSlider.value);
+
+        Debug.Log("player: " + playerSlider.value);
+        Debug.Log("delay: " + delaySlider.value);
+        Debug.Log("framesBehind: " + framesBehindSlider.value);
+        Debug.Log("forward: " + forwardSlider.value);
+        Debug.Log("turning: " + turningSlider.value);
+        Debug.Log("***************************");
 
         PlayerPrefs.Save();
-        
-
     }
 
     public void LoadOptions()
     {
-        if (PlayerPrefs.HasKey("player"))
+        Debug.Log("***** Loading options *****");
+        if (PlayerPrefs.HasKey(PLAYERS_KEY))
         {
-            playerSlider.value = PlayerPrefs.GetFloat("player");
+            playerSlider.value = PlayerPrefs.GetFloat(PLAYERS_KEY);
+            Debug.Log("player found with a value of " + playerSlider.value);
         }
 
-        if (PlayerPrefs.HasKey("delay"))
+        if (PlayerPrefs.HasKey(DELAY_KEY))
         {
-            delaySlider.value = PlayerPrefs.GetFloat("delay");
+            delaySlider.value = PlayerPrefs.GetFloat(DELAY_KEY);
+            Debug.Log("delay found with a value of " + delaySlider.value);
         }
 
-        if (PlayerPrefs.HasKey("framesBehind"))
+        if (PlayerPrefs.HasKey(FRAMES_BEHIND_KEY))
         {
-            framesBehindSlider.value = (int)PlayerPrefs.GetFloat("player");
+            framesBehindSlider.value = (int)PlayerPrefs.GetFloat(FRAMES_BEHIND_KEY);
+            Debug.Log("framesBehind found with a value of " + framesBehindSlider.value);
         }
 
-        if (PlayerPrefs.HasKey("forward"))
+        if (PlayerPrefs.HasKey(FORWARD_KEY))
         {
-            playerSlider.value = PlayerPrefs.GetFloat("player");
+            forwardSlider.value = PlayerPrefs.GetFloat(FORWARD_KEY);
+            Debug.Log("forward found with a value of " + forwardSlider.value);
         }
 
-        if (PlayerPrefs.HasKey("turning"))
+        if (PlayerPrefs.HasKey(TURNING_KEY))
         {
-            playerSlider.value = PlayerPrefs.GetFloat("turning");
+            turningSlider.value = PlayerPrefs.GetFloat(TURNING_KEY);
+            Debug.Log("turning found with a value of " + turningSlider.value);
         }
-
-        
-
-
+        Debug.Log("***************************");
     }
 
 }
