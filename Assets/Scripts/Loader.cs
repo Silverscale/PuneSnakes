@@ -11,6 +11,7 @@ public class Loader : MonoBehaviour
     public void MainMenu(float delay)
     {
         StartCoroutine(LoadScene(0, delay));
+        
     }
 
     public void Game() {
