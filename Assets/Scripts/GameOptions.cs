@@ -10,19 +10,22 @@ public class GameOptions : MonoBehaviour
     private readonly string FRAMES_BEHIND_KEY = "framesBehind";
     private readonly string FORWARD_KEY = "forward";
     private readonly string TURNING_KEY = "turning";
+    private readonly string ROUNDS_KEY = "rounds";
 
     public static int players;
     public static float delay;
     public static int framesBehind;
     public static float forward;
     public static float turning;
-    
+    public static int rounds;
+
 
     public Slider playerSlider;
     public Slider delaySlider;
     public Slider framesBehindSlider;
     public Slider forwardSlider;
     public Slider turningSlider;
+    public Slider roundsSlider;
 
 
     public void Start()
@@ -36,6 +39,7 @@ public class GameOptions : MonoBehaviour
         framesBehind = (int)framesBehindSlider.value;
         forward = forwardSlider.value;
         turning = turningSlider.value;
+        rounds = (int)roundsSlider.value;
     }
 
     /*On macOS PlayerPrefs are stored in ~/Library/Preferences folder, 
@@ -52,12 +56,14 @@ public class GameOptions : MonoBehaviour
         PlayerPrefs.SetFloat(FRAMES_BEHIND_KEY, framesBehindSlider.value);
         PlayerPrefs.SetFloat(FORWARD_KEY, forwardSlider.value);
         PlayerPrefs.SetFloat(TURNING_KEY, turningSlider.value);
+        PlayerPrefs.SetFloat(ROUNDS_KEY, roundsSlider.value);
 
         Debug.Log("player: " + playerSlider.value);
         Debug.Log("delay: " + delaySlider.value);
         Debug.Log("framesBehind: " + framesBehindSlider.value);
         Debug.Log("forward: " + forwardSlider.value);
         Debug.Log("turning: " + turningSlider.value);
+        Debug.Log("rounds: " + roundsSlider.value);
         Debug.Log("***************************");
 
         PlayerPrefs.Save();
@@ -94,6 +100,12 @@ public class GameOptions : MonoBehaviour
         {
             turningSlider.value = PlayerPrefs.GetFloat(TURNING_KEY);
             Debug.Log("turning found with a value of " + turningSlider.value);
+        }
+
+        if (PlayerPrefs.HasKey(ROUNDS_KEY))
+        {
+            turningSlider.value = PlayerPrefs.GetFloat(ROUNDS_KEY);
+            Debug.Log("rounds found with a value of " + roundsSlider.value);
         }
         Debug.Log("***************************");
     }

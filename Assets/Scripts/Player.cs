@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private readonly string wallTag = "Obstacle";
-    private int playerNumber;
+    public int playerNumber;
     private Follower follower;
     [SerializeField] private bool shouldAutoExpand = true;
     [SerializeField] private float autoExpandCDInSeconds = 2f;
@@ -15,13 +15,18 @@ public class Player : MonoBehaviour
     private Coroutine expanding;
     private SnakeMovement myMovement;
 
+    private Score score;
+
     void Start()
     {
         autoExpandCDInSeconds = GameOptions.delay;
         myMovement = GetComponent<SnakeMovement>();
-        if (shouldAutoExpand) {
+        if (shouldAutoExpand)
+        {
             expanding = StartCoroutine(AutoExpand());
         }
+
+        score = GameObject.FindObjectOfType<Score>();
     }
 
     void FixedUpdate() {
@@ -68,6 +73,7 @@ public class Player : MonoBehaviour
             follower.StopAll();
             StopCoroutine(expanding);
             alive = false;
+            score.playerKill(this);
         }
     }
 }

@@ -7,19 +7,27 @@ public class Setup : MonoBehaviour {
     public Player playerPrefab;
     public Transform[] spawnPoint;
 
-    private Transform player;
+    private Transform playerTransform;
+
+    public List<Player> playerList;
 
 	// Use this for initialization
 	void Start ()
     {
         for (int i = 0; i < GameOptions.players; i++)
         {
-            player = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Transform>();
+            playerPrefab = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
+            playerTransform = playerPrefab.gameObject.GetComponent<Transform>();
 
-            player.position = spawnPoint[i].position;
-            player.rotation = spawnPoint[i].rotation;
-            Debug.Log("rotation set to: " + player.rotation);
+            playerTransform.position = spawnPoint[i].position;
+            playerTransform.rotation = spawnPoint[i].rotation;
+            Debug.Log("rotation set to: " + playerTransform.rotation);
+
+            playerList.Add(playerPrefab);
+            playerPrefab.playerNumber = i;
 
         }
     }
+
+
 }
