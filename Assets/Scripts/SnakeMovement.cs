@@ -9,6 +9,7 @@ public class SnakeMovement : MonoBehaviour
 
     private ISnakeController myController;
     private Rigidbody2D myRigidbody2D;
+    private bool isMoving = false;
 
     private void Awake() {
         moveSpeed = GameOptions.forward;
@@ -22,16 +23,25 @@ public class SnakeMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float input = myController.GetInput();
-        if (input != 0)
+        if (isMoving) 
         {
-            myRigidbody2D.SetRotation(myRigidbody2D.rotation - input * turnSpeed * Time.fixedDeltaTime);
+            float input = myController.GetInput();
+            if (input != 0) {
+                myRigidbody2D.SetRotation(myRigidbody2D.rotation - input * turnSpeed * Time.fixedDeltaTime);
+            }
+            myRigidbody2D.velocity = transform.up * moveSpeed;
         }
-        myRigidbody2D.velocity = transform.up * moveSpeed * Time.fixedDeltaTime;
+        else
+        {
+            myRigidbody2D.velocity = Vector2.zero;
+        }
     }
 
     public void Stop() {
-        moveSpeed = 0;
-        turnSpeed = 0;
+        isMoving = false;
+    }
+
+    public void Resume() {
+        isMoving = true;
     }
 }

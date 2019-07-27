@@ -6,9 +6,10 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
 
     private int playerNumber;
 
-    public void Awake()
+    public void Start()
     {
-        playerNumber = FindObjectsOfType<PlayerInput>().Length;
+        Player myPlayer = GetComponent<Player>();
+        playerNumber = myPlayer.playerNumber;
         Debug.Log("Created player " + playerNumber);
     }
 
