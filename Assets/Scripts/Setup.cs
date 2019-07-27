@@ -16,18 +16,34 @@ public class Setup : MonoBehaviour {
     {
         for (int i = 0; i < GameOptions.players; i++)
         {
-            playerPrefab = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
-            playerTransform = playerPrefab.gameObject.GetComponent<Transform>();
+            Player newPlayer = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
+            playerTransform = newPlayer.gameObject.GetComponent<Transform>();
 
             playerTransform.position = spawnPoint[i].position;
             playerTransform.rotation = spawnPoint[i].rotation;
             Debug.Log("rotation set to: " + playerTransform.rotation);
 
-            playerList.Add(playerPrefab);
-            playerPrefab.playerNumber = i;
-
+            playerList.Add(newPlayer);
+            newPlayer.playerNumber = i;
+            DisablePlayer(newPlayer);
         }
     }
 
+    private void DisablePlayer(Player player) {
+        player.GetComponent<Player>().enabled = false;
+        player.GetComponent<SnakeMovement>().Stop();
+    }
+
+    private void EnablePlayer(Player player) {
+        player.GetComponent<Player>().enabled = true;
+        player.GetComponent<SnakeMovement>().Resume();
+    }
+
+
+    public void StartRound() {
+        foreach (Player player in playerList) {
+             EnablePlayer(player);
+        }
+    }
 
 }
