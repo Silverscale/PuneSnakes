@@ -109,7 +109,7 @@ public class GameOptions : MonoBehaviour
 
         if (PlayerPrefs.HasKey(ROUNDS_KEY))
         {
-            turningSlider.value = PlayerPrefs.GetFloat(ROUNDS_KEY);
+            roundsSlider.value = PlayerPrefs.GetFloat(ROUNDS_KEY);
             Debug.Log("rounds found with a value of " + roundsSlider.value);
         }
         if (PlayerPrefs.HasKey(SNAKE_SIZE)) {

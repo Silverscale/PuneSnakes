@@ -15,6 +15,9 @@ public class Follower : MonoBehaviour
         Vector2 nextStep = steps.Dequeue();
         if (following) {
             transform.position = nextStep;
+            Quaternion rotation = Quaternion.LookRotation
+            ((Vector3)steps.Peek() - transform.position, transform.TransformDirection(Vector3.up));
+            transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
             //TODO rotation;
         }
 
