@@ -18,7 +18,7 @@ public class Setup : MonoBehaviour {
         {
             Player newPlayer = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
             playerTransform = newPlayer.gameObject.GetComponent<Transform>();
-
+            playerTransform.localScale = Vector3.one * GameOptions.snakeScale;
             playerTransform.position = spawnPoint[i].position;
             playerTransform.rotation = spawnPoint[i].rotation;
             Debug.Log("rotation set to: " + playerTransform.rotation);

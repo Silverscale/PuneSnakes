@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
 
     private void SpawnFollower() {
         Follower newFollower = GameObject.Instantiate<Follower>(bodyChunk, TailPosition(), Quaternion.identity, transform.parent);
+        newFollower.transform.localScale = Vector3.one * GameOptions.snakeScale;
         if (follower) {
             follower.AddFollower(newFollower);
         }

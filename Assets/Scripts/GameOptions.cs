@@ -11,6 +11,7 @@ public class GameOptions : MonoBehaviour
     private readonly string FORWARD_KEY = "forward";
     private readonly string TURNING_KEY = "turning";
     private readonly string ROUNDS_KEY = "rounds";
+    private readonly string SNAKE_SIZE = "snakeScale";
 
     public static int players;
     public static float delay;
@@ -18,6 +19,7 @@ public class GameOptions : MonoBehaviour
     public static float forward;
     public static float turning;
     public static int rounds;
+    public static float snakeScale;
 
 
     public Slider playerSlider;
@@ -26,6 +28,7 @@ public class GameOptions : MonoBehaviour
     public Slider forwardSlider;
     public Slider turningSlider;
     public Slider roundsSlider;
+    public Slider snakeScaleSlider;
 
 
     public void Start()
@@ -40,6 +43,7 @@ public class GameOptions : MonoBehaviour
         forward = forwardSlider.value;
         turning = turningSlider.value;
         rounds = (int)roundsSlider.value;
+        snakeScale = snakeScaleSlider.value;
     }
 
     /*On macOS PlayerPrefs are stored in ~/Library/Preferences folder, 
@@ -50,14 +54,15 @@ public class GameOptions : MonoBehaviour
 
     public void SaveOptions()
     {
-        Debug.Log("***** Saving options *****");
         PlayerPrefs.SetFloat(PLAYERS_KEY, playerSlider.value);
         PlayerPrefs.SetFloat(DELAY_KEY, delaySlider.value);
         PlayerPrefs.SetFloat(FRAMES_BEHIND_KEY, framesBehindSlider.value);
         PlayerPrefs.SetFloat(FORWARD_KEY, forwardSlider.value);
         PlayerPrefs.SetFloat(TURNING_KEY, turningSlider.value);
         PlayerPrefs.SetFloat(ROUNDS_KEY, roundsSlider.value);
+        PlayerPrefs.SetFloat(SNAKE_SIZE, snakeScaleSlider.value);
 
+        /*Debug.Log("***** Saving options *****");
         Debug.Log("player: " + playerSlider.value);
         Debug.Log("delay: " + delaySlider.value);
         Debug.Log("framesBehind: " + framesBehindSlider.value);
@@ -65,7 +70,7 @@ public class GameOptions : MonoBehaviour
         Debug.Log("turning: " + turningSlider.value);
         Debug.Log("rounds: " + roundsSlider.value);
         Debug.Log("***************************");
-
+        */
         PlayerPrefs.Save();
     }
 
@@ -106,6 +111,10 @@ public class GameOptions : MonoBehaviour
         {
             turningSlider.value = PlayerPrefs.GetFloat(ROUNDS_KEY);
             Debug.Log("rounds found with a value of " + roundsSlider.value);
+        }
+        if (PlayerPrefs.HasKey(SNAKE_SIZE)) {
+            snakeScaleSlider.value = PlayerPrefs.GetFloat(SNAKE_SIZE);
+            Debug.Log("snake scale found with a value of " + snakeScaleSlider.value);
         }
         Debug.Log("***************************");
     }

@@ -19,6 +19,6 @@ public class ShowSliderValue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = label + " " + mySlider.value;
+        text.text = label + " " + mySlider.value.ToString("F");
     }
 }
