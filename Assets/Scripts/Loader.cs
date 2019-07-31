@@ -25,6 +25,7 @@ public class Loader : MonoBehaviour
 
     public void MainMenu(float delay)
     {
+        Debug.Log("Start Main Menu");
         StartCoroutine(LoadScene(0, delay));
         
     }

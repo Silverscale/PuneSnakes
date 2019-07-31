@@ -7,14 +7,28 @@ public class ReadySetGo : MonoBehaviour
 {
     private TextMeshProUGUI text;
     [SerializeField] private Setup setup;
-    // Start is called before the first frame update
-    void Awake()
+
+    private AudioClip readyClip;
+ 
+        
+        // Start is called before the first frame update
+        void Awake()
     {
-        text = GetComponent<TextMeshProUGUI>();
+            readyClip = (AudioClip)Resources.Load("Sounds/ReadySaori");
+            text = GetComponent<TextMeshProUGUI>();
+    }
+
+    void Start()
+    {
+        SoundManager.Instance.Play(readyClip);
     }
 
     public void Ready() {
+
         text.text = "Ready!";
+
+        Debug.Log("READY!!");
+        
     }
 
     public void Set() {

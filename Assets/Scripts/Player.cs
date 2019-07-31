@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log("Checking collision");
+        //Debug.Log("Checking collision");
         if(alive && col.gameObject != follower.gameObject)
         this.Kill();
     }
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
             follower.StopAll();
             StopCoroutine(expanding);
             alive = false;
-            score.playerKill(this);
+            score.PlayerKill(this);
         }
     }
 }

@@ -11,9 +11,13 @@ public class Setup : MonoBehaviour {
 
     public List<Player> playerList;
 
+    private AudioClip musicClip;
 	// Use this for initialization
 	void Start ()
     {
+        musicClip = (AudioClip)Resources.Load("Sounds/Music");
+
+
         for (int i = 0; i < GameOptions.players; i++)
         {
             Player newPlayer = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
@@ -27,6 +31,8 @@ public class Setup : MonoBehaviour {
             newPlayer.playerNumber = i;
             DisablePlayer(newPlayer);
         }
+
+        SoundManager.Instance.PlayMusic(musicClip);
     }
 
     private void DisablePlayer(Player player) {

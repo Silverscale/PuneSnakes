@@ -13,6 +13,8 @@ public class Score : MonoBehaviour
     public string scoreDisplay;
     private GameObject scoreboardDisplay;
     private int rounds;
+
+    private AudioClip deathClip;
     //public GameOptions currentOptions;
 
 
@@ -24,6 +26,10 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        deathClip = (AudioClip)Resources.Load("Sounds/Death");
+        
+
         currentSetup = FindObjectOfType<Setup>();
 
         loader = FindObjectOfType<Loader>();
@@ -57,18 +63,24 @@ public class Score : MonoBehaviour
         //scoreboardDisplay.GetComponent<Text>().text = scoreDisplay;
     }
 
-    public void playerKill(Player deadPlayer)
+    public void PlayerKill(Player deadPlayer)
     {
+
         alivePlayers.Remove(deadPlayer);
-        givePoints();
+        GivePoints();
 
         if (alivePlayers.Count == 0)
         {
-            finishRound();
+            FinishRound();
+        }
+
+        else
+        {
+            SoundManager.Instance.Play(deathClip);
         }
     }
 
-    private void givePoints()
+    private void GivePoints()
     {
         foreach (Player p in alivePlayers)
         {
@@ -77,18 +89,18 @@ public class Score : MonoBehaviour
         Debug.Log("Point given");
     }
 
-    private void finishRound()
+    private void FinishRound()
     {
         rounds--;
 
         if (rounds!=0)
         {
             Debug.Log("Round finished: Rounds left: " + rounds);
-            startRound();
+            StartRound();
         }
     }
 
-    private void startRound()
+    private void StartRound()
     {
         
         loader.Game();
