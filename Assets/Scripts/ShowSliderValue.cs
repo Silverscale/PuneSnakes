@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShowSliderValue : MonoBehaviour
 {
 
-    [SerializeField] string label;
+    [SerializeField] string label = default;
 
     private Slider mySlider;
     public Text text;

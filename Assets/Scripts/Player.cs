@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private readonly string wallTag = "Obstacle";
     public int playerNumber;
     private Follower follower;
     [SerializeField] private bool shouldAutoExpand = true;

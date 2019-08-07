@@ -6,9 +6,7 @@ using TMPro;
 public class ReadySetGo : MonoBehaviour
 {
     private TextMeshProUGUI text;
-    [SerializeField] private Setup setup;
-
-    [SerializeField] private AudioClip readyClip;
+    [SerializeField] private Setup setup = default;
   
         
         // Start is called before the first frame update
@@ -19,7 +17,7 @@ public class ReadySetGo : MonoBehaviour
 
     void Start()
     {
-        SoundManager.Instance.Play(readyClip);
+        SoundManager.Instance.PlayReadySetGo();
     }
 
     public void Ready() {

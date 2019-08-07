@@ -10,14 +10,9 @@ public class Setup : MonoBehaviour {
     private Transform playerTransform;
 
     public List<Player> playerList;
-
-    private AudioClip musicClip;
 	// Use this for initialization
 	void Start ()
     {
-        musicClip = (AudioClip)Resources.Load("Sounds/Music");
-
-
         for (int i = 0; i < GameOptions.players; i++)
         {
             Player newPlayer = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
@@ -25,14 +20,14 @@ public class Setup : MonoBehaviour {
             playerTransform.localScale = Vector3.one * GameOptions.snakeScale;
             playerTransform.position = spawnPoint[i].position;
             playerTransform.rotation = spawnPoint[i].rotation;
-            Debug.Log("rotation set to: " + playerTransform.rotation);
+            //Debug.Log("rotation set to: " + playerTransform.rotation);
 
             playerList.Add(newPlayer);
             newPlayer.playerNumber = i;
             DisablePlayer(newPlayer);
         }
 
-        SoundManager.Instance.PlayMusic(musicClip);
+        SoundManager.Instance.PlayGameMusic();
     }
 
     private void DisablePlayer(Player player) {
