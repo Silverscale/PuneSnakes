@@ -9,10 +9,10 @@ public class ReadySetGo : MonoBehaviour
     [SerializeField] private Setup setup = default;
   
         
-        // Start is called before the first frame update
-        void Awake()
+    // Start is called before the first frame update
+    void Awake()
     {
-            text = GetComponent<TextMeshProUGUI>();
+        text = GetComponent<TextMeshProUGUI>();
     }
 
     void Start()
