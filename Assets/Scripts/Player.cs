@@ -4,76 +4,54 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int playerNumber;
-    private Follower follower;
-    [SerializeField] private bool shouldAutoExpand = true;
-    [SerializeField] private float autoExpandCDInSeconds = 2f;
-    private bool alive = true;
-
-    public Follower bodyChunk;
-    private Coroutine expanding;
-    private SnakeMovement myMovement;
-
+    static private List<Player> playerList = new List<Player>();
+    public int playerNumber { get; private set;}
+ 
     private Score score;
+    private SnakeHead mySnake;
+    
 
-    void Start()
+    public static void ClearPlayerList() {
+        playerList.Clear();
+    }
+
+    public static List<Player> GetList() {
+        return playerList;
+    }
+
+    public static void Go() {
+        foreach (Player player in playerList) {
+            player.Enable();
+        }
+    }
+
+void Start()
     {
-        autoExpandCDInSeconds = GameOptions.delay;
-        myMovement = GetComponent<SnakeMovement>();
-        if (shouldAutoExpand)
-        {
-            expanding = StartCoroutine(AutoExpand());
-        }
-
         score = GameObject.FindObjectOfType<Score>();
+        Register();
     }
 
-    void FixedUpdate() {
-        if (follower) {
-            follower.AddStep(transform.position);
-        }
+    public void SetSnake(SnakeHead newSnake) {
+        mySnake = newSnake;
     }
 
-    private IEnumerator AutoExpand() {
-        do {
-            yield return new WaitForSeconds(autoExpandCDInSeconds);
-            SpawnFollower();
-        } while (true);
+    public void PlayerDied() {
+        score.PlayerKill(this);
     }
 
-    private void SpawnFollower() {
-        Follower newFollower = GameObject.Instantiate<Follower>(bodyChunk, TailPosition(), Quaternion.identity, transform.parent);
-        newFollower.transform.localScale = Vector3.one * GameOptions.snakeScale;
-        if (follower) {
-            follower.AddFollower(newFollower);
-        }
-        else {
-            follower = newFollower;
-            follower.InitializeSteps(transform.position);
-        }
+    private void Register() {
+        playerList.Add(this);
+        playerNumber = playerList.Count;
     }
 
-    private Vector2 TailPosition() {
-        Vector2 position = transform.position;
-        if (follower) {
-            position = follower.GetLastFollowerPosition();
-        }
-        return position;
+    public void Disable() {
+        mySnake.enabled = false;
+        mySnake.GetComponent<SnakeMovement>().Stop();
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
-        //Debug.Log("Checking collision");
-        if(alive && col.gameObject != follower.gameObject)
-        this.Kill();
+    public void Enable() {
+        mySnake.enabled = true;
+        mySnake.GetComponent<SnakeMovement>().Resume();
     }
 
-    public void Kill() {
-        if (alive) {
-            myMovement.Stop();
-            follower.StopAll();
-            StopCoroutine(expanding);
-            alive = false;
-            score.PlayerKill(this);
-        }
-    }
 }
