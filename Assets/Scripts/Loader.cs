@@ -7,9 +7,15 @@ public class Loader : MonoBehaviour
 {
     [SerializeField] private float delayAtSplash = 3f;
 
+    private void Start() {
+        //Check if this is the Splash screen, and load the main menu after delayAtSplash seconds.
+        if (SceneManager.GetActiveScene().buildIndex == 0) {
+            MainMenu(delayAtSplash);
+        }
+    }
+
     public void MainMenu(float delay)
     {
-        Debug.Log("Start Main Menu");
         StartCoroutine(LoadScene(0, delay));
     }
 
