@@ -12,7 +12,9 @@ public class SnakeHead : MonoBehaviour
     private SnakeMovement myMovement;
     private Player myPlayer;
 
-    [SerializeField] private Follower bodyChunk;
+    [SerializeField] private Follower bodyChunk = default;
+
+
     // Start is called before the first frame update
     void Start() {
         autoExpandCDInSeconds = GameOptions.delay;
@@ -21,6 +23,7 @@ public class SnakeHead : MonoBehaviour
             expanding = StartCoroutine(AutoExpand());
         }
     }
+
     void FixedUpdate() {
         if (follower) {
             follower.AddStep(transform.position);

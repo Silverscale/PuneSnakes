@@ -33,10 +33,10 @@ public class Setup : MonoBehaviour {
 
 
             //Position and scale the snakes for the game start
-            Transform playerTransform = newPlayer.gameObject.GetComponent<Transform>();
-            playerTransform.localScale = Vector3.one * GameOptions.snakeScale;
-            playerTransform.position = spawnPoint[i].position;
-            playerTransform.rotation = spawnPoint[i].rotation;
+            Transform snakeTransform = newSnake.gameObject.GetComponent<Transform>();
+            snakeTransform.localScale = Vector3.one * GameOptions.snakeScale;
+            snakeTransform.position = spawnPoint[i].position;
+            snakeTransform.rotation = spawnPoint[i].rotation;
 
             //Disable the players while they wait for the round to start
             newPlayer.Disable();

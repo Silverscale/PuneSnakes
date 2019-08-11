@@ -7,6 +7,8 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
     private int playerNumber;
     private Player myPlayer;
     private string inputAxis;
+
+
     void Start() {
         myPlayer = GetComponentInParent<Player>();
         playerNumber = myPlayer.playerNumber;
@@ -14,6 +16,7 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
     }
 
     public float GetInput() {
-        return Input.GetAxis("Player" + playerNumber);
+        Debug.Log("Reading input from " + inputAxis);
+        return Input.GetAxis(inputAxis);
     }
 }

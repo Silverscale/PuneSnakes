@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
  
     private Score score;
     private SnakeHead mySnake;
-    
 
     public static void ClearPlayerList() {
         playerList.Clear();
@@ -25,10 +24,13 @@ public class Player : MonoBehaviour
         }
     }
 
+
+
 void Start()
     {
         score = GameObject.FindObjectOfType<Score>();
         Register();
+        GetComponentInParent<Transform>().name = "Player " + playerNumber;
     }
 
     public void SetSnake(SnakeHead newSnake) {
@@ -41,7 +43,7 @@ void Start()
 
     private void Register() {
         playerList.Add(this);
-        playerNumber = playerList.Count;
+        playerNumber = playerList.Count - 1;
     }
 
     public void Disable() {
