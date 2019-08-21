@@ -4,47 +4,43 @@ using UnityEngine;
 
 public class Setup : MonoBehaviour {
 
-    public Player playerPrefab;
-    public Transform[] spawnPoint;
+    [SerializeField] private Player playerPrefab = default;
+    [SerializeField] private SnakeHead snakePrefab = default;
+    [SerializeField] private Transform[] spawnPoint = default;
 
-    private Transform playerTransform;
+    //public List<Player> playerList;
 
-    public List<Player> playerList;
-	// Use this for initialization
 	void Start ()
     {
+        //Clear the list of players
+        Player.ClearPlayerList();
         for (int i = 0; i < GameOptions.players; i++)
         {
+            //Create and setup the starting elements for a match
             Player newPlayer = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
-            playerTransform = newPlayer.gameObject.GetComponent<Transform>();
-            playerTransform.localScale = Vector3.one * GameOptions.snakeScale;
-            playerTransform.position = spawnPoint[i].position;
-            playerTransform.rotation = spawnPoint[i].rotation;
-            //Debug.Log("rotation set to: " + playerTransform.rotation);
+            SnakeHead newSnake = Object.Instantiate<GameObject>(snakePrefab.gameObject).GetComponent<SnakeHead>();
+            
+            //La serpiente queda como hijo del Player, para que quede mas ordenada la escena.
+            //Ademas, hace que sea mas facil para los componentes de la serpiente encontrar su player,
+            //usando GetComponentInParent<Player>();
+            newSnake.transform.SetParent(newPlayer.transform);
 
-            playerList.Add(newPlayer);
-            newPlayer.playerNumber = i;
-            DisablePlayer(newPlayer);
+            //WARNING:  Referencia circular, hay que encontrar una forma mejor de hacer esto.
+            //          SnakeHead deberia tener la referencia a player, pero NO player a SnakeHead.
+            //          Esto permitiria reusar la clase Player en otros modos de juego.
+            newSnake.SetPlayer(newPlayer);
+            newPlayer.SetSnake(newSnake);
+
+
+            //Position and scale the snakes for the game start
+            Transform snakeTransform = newSnake.gameObject.GetComponent<Transform>();
+            snakeTransform.localScale = Vector3.one * GameOptions.snakeScale;
+            snakeTransform.position = spawnPoint[i].position;
+            snakeTransform.rotation = spawnPoint[i].rotation;
+
+            //Disable the players while they wait for the round to start
+            newPlayer.Disable();
         }
-
         SoundManager.Instance.PlayGameMusic();
     }
-
-    private void DisablePlayer(Player player) {
-        player.GetComponent<Player>().enabled = false;
-        player.GetComponent<SnakeMovement>().Stop();
-    }
-
-    private void EnablePlayer(Player player) {
-        player.GetComponent<Player>().enabled = true;
-        player.GetComponent<SnakeMovement>().Resume();
-    }
-
-
-    public void StartRound() {
-        foreach (Player player in playerList) {
-             EnablePlayer(player);
-        }
-    }
-
 }

@@ -45,7 +45,7 @@ public class Score : MonoBehaviour
 
         DontDestroyOnLoad(this);
         scoreboard = new int[4]; //Expandir
-        allPlayers = currentSetup.playerList;
+        allPlayers = Player.GetList();
         alivePlayers = new List<Player>(allPlayers);
             
     }
@@ -106,7 +106,7 @@ public class Score : MonoBehaviour
         loader.Game();
 
         currentSetup = FindObjectOfType<Setup>();
-        alivePlayers = new List<Player>(currentSetup.playerList);
+        alivePlayers = new List<Player>(Player.GetList());
         Debug.Log("Alive Players: " + alivePlayers.Count + "All players: " + allPlayers.Count);
     }
 
