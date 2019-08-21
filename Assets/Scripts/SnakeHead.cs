@@ -93,6 +93,7 @@ public class SnakeHead : MonoBehaviour
     }
 
     public void SelfDestruct() {
+        StopAllCoroutines();
         if (follower) {
             follower.SelfDestruct();
         }

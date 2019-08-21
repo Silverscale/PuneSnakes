@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     public int playerNumber { get; private set;}
     private bool active = true;
     private SnakeHead mySnake;
-    private int score = 0;
-    public int Score { get { return score; } }
+
+    public int Score { get; private set; } = 0;
 
     //Prepara la lista para una nueva partida
     public static void ClearPlayerList() {
@@ -68,6 +68,6 @@ public class Player : MonoBehaviour
         return active;
     }
     public void RecievePoints(int points) {
-        score += points;
+        Score += points;
     }
 }
