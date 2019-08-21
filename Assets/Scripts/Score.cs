@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 
 {
-    private Setup currentSetup;
+    private RoundSetup currentSetup;
     private List<Player> alivePlayers;
     private List<Player> allPlayers;
     private int[] scoreboard;
@@ -30,7 +30,7 @@ public class Score : MonoBehaviour
         deathClip = (AudioClip)Resources.Load("Sounds/Death");
         
 
-        currentSetup = FindObjectOfType<Setup>();
+        currentSetup = FindObjectOfType<RoundSetup>();
 
         loader = FindObjectOfType<Loader>();
 
@@ -105,7 +105,7 @@ public class Score : MonoBehaviour
         
         loader.Game();
 
-        currentSetup = FindObjectOfType<Setup>();
+        currentSetup = FindObjectOfType<RoundSetup>();
         alivePlayers = new List<Player>(Player.GetList());
         Debug.Log("Alive Players: " + alivePlayers.Count + "All players: " + allPlayers.Count);
     }
