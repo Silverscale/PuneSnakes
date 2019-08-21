@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Setup : MonoBehaviour {
+public class RoundSetup : MonoBehaviour {
 
     [SerializeField] private SnakeHead snakePrefab = default;
     [SerializeField] private Transform[] spawnPoint = default;
@@ -11,13 +11,12 @@ public class Setup : MonoBehaviour {
 
 	void Start ()
     {
-        //Clear the list of players
-        //Player.ClearPlayerList();
         for (int i = 0; i < GameOptions.players; i++)
         {
             //Create and setup the starting elements for a match
             Player player = Player.GetPlayer(i);
             SnakeHead newSnake = Object.Instantiate<GameObject>(snakePrefab.gameObject).GetComponent<SnakeHead>();
+            player.SetAsActive();
             
             //La serpiente queda como hijo del Player, para que quede mas ordenada la escena.
             //Ademas, hace que sea mas facil para los componentes de la serpiente encontrar su player,
@@ -38,7 +37,8 @@ public class Setup : MonoBehaviour {
             snakeTransform.rotation = spawnPoint[i].rotation;
 
             //Disable the players while they wait for the round to start
-            player.Disable();
+            //player.Disable();
+            newSnake.Wait();
         }
         SoundManager.Instance.PlayGameMusic();
     }
