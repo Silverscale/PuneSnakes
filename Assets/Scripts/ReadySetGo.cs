@@ -5,17 +5,11 @@ using TMPro;
 
 public class ReadySetGo : MonoBehaviour
 {
-    private TextMeshProUGUI text;
+    private TextMeshProUGUI text = default;
   
-        
-    // Start is called before the first frame update
-    void Awake()
-    {
-        text = GetComponent<TextMeshProUGUI>();
-    }
-
     void Start()
     {
+        text = GetComponent<TextMeshProUGUI>();
         SoundManager.Instance.PlayReadySetGo();
         text.text = "Ready!";
     }
@@ -30,7 +24,6 @@ public class ReadySetGo : MonoBehaviour
     }
 
     public void StartRound() {
-        Player.Go();
-        Destroy(gameObject);
+        text.gameObject.SetActive(false);
     }
 }

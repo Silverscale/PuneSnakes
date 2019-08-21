@@ -16,11 +16,19 @@ public class Loader : MonoBehaviour
 
     public void MainMenu(float delay)
     {
-        StartCoroutine(LoadScene(0, delay));
+        StartCoroutine(LoadScene(1, delay));
     }
 
     public void Game() {
-        StartCoroutine(LoadScene(1, 0.5f));
+        StartCoroutine(LoadScene(2, 0.5f));
+    }
+
+    public void LoadScene(Scene scene) {
+        SceneManager.LoadScene(scene.buildIndex);
+    }
+
+    public void LoadScene(int index) {
+        SceneManager.LoadScene(index);
     }
 
     private IEnumerator LoadScene(int sceneIndex, float seconds)

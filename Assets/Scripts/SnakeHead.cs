@@ -9,19 +9,15 @@ public class SnakeHead : MonoBehaviour
     [SerializeField] private float autoExpandCDInSeconds = 2f;
     private bool alive = true;
     private Coroutine expanding;
+
     private SnakeMovement myMovement;
     private Player myPlayer;
-
     [SerializeField] private Follower bodyChunk = default;
 
 
-    // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         autoExpandCDInSeconds = GameOptions.delay;
         myMovement = GetComponent<SnakeMovement>();
-        if (shouldAutoExpand) {
-            expanding = StartCoroutine(AutoExpand());
-        }
     }
 
     void FixedUpdate() {
@@ -30,6 +26,7 @@ public class SnakeHead : MonoBehaviour
         }
     }
 
+    //Spawns a new body chunk every 'autoExpandCDInSeconds' seconds
     private IEnumerator AutoExpand() {
         do {
             yield return new WaitForSeconds(autoExpandCDInSeconds);
@@ -38,7 +35,12 @@ public class SnakeHead : MonoBehaviour
     }
 
     private void SpawnFollower() {
-        Follower newFollower = GameObject.Instantiate<Follower>(bodyChunk, TailPosition(), Quaternion.identity, transform.parent);
+        Follower newFollower = GameObject.Instantiate<Follower>(
+                    bodyChunk, 
+                    TailPosition(), 
+                    Quaternion.identity, 
+                    transform.parent);
+
         newFollower.transform.localScale = Vector3.one * GameOptions.snakeScale;
         if (follower) {
             follower.AddFollower(newFollower);
@@ -69,11 +71,31 @@ public class SnakeHead : MonoBehaviour
             follower.StopAll();
             StopCoroutine(expanding);
             alive = false;
-            myPlayer.PlayerDied();
+            myPlayer.Disable();
         }
     }
 
     public void SetPlayer(Player player) {
         myPlayer = player;
+    }
+
+    public void Go() {
+        enabled = true;
+        myMovement.Resume();
+        if (shouldAutoExpand) {
+            expanding = StartCoroutine(AutoExpand());
+        }
+    }
+
+    public void Wait() {
+        myMovement.Stop();
+        enabled = false;
+    }
+
+    public void SelfDestruct() {
+        if (follower) {
+            follower.SelfDestruct();
+        }
+        Destroy(gameObject);
     }
 }
