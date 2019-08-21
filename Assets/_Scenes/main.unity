@@ -524,15 +524,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19da821689f36048a1f8f593b34c008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 5083101362426140689, guid: 1e610c6deee175649bcb267d5884f016,
-    type: 3}
-  snakePrefab: {fileID: -5466283423528021031, guid: 6b0a87c4eed78b64784f0482099bf37e,
+  playerPrefab: {fileID: 5976051726832341041, guid: 6b0a87c4eed78b64784f0482099bf37e,
     type: 3}
   spawnPoint:
   - {fileID: 251003574}
   - {fileID: 1443438886}
   - {fileID: 1868926262}
   - {fileID: 2073290894}
+  playerList: []
 --- !u!4 &348637180
 Transform:
   m_ObjectHideFlags: 0
@@ -1296,6 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424cb97491f07c94698a40e5343f9c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setup: {fileID: 348637179}
 --- !u!95 &935612327
 Animator:
   serializedVersion: 3

@@ -17,6 +17,8 @@ public class SnakeMovement : MonoBehaviour
 
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myController = GetComponent<ISnakeController>();
+        Debug.Log("Player " + myController.PlayerNumber() +
+            " is going to read from: Player" + myController.PlayerNumber());
     }
 
     private void FixedUpdate()

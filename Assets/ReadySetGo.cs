@@ -6,6 +6,7 @@ using TMPro;
 public class ReadySetGo : MonoBehaviour
 {
     private TextMeshProUGUI text;
+    [SerializeField] private Setup setup = default;
   
         
     // Start is called before the first frame update
@@ -17,10 +18,16 @@ public class ReadySetGo : MonoBehaviour
     void Start()
     {
         SoundManager.Instance.PlayReadySetGo();
-        text.text = "Ready!";
     }
 
-    //All these are called from the animator in the ReadySetGo gameObject
+    public void Ready() {
+
+        text.text = "Ready!";
+
+        Debug.Log("READY!!");
+        
+    }
+
     public void Set() {
         text.text = "Set!";
     }
@@ -30,7 +37,7 @@ public class ReadySetGo : MonoBehaviour
     }
 
     public void StartRound() {
-        Player.Go();
+        setup.StartRound();
         Destroy(gameObject);
     }
 }

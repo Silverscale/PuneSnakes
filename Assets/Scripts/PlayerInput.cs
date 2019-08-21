@@ -5,18 +5,19 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour, ISnakeController   {
 
     private int playerNumber;
-    private Player myPlayer;
-    private string inputAxis;
 
-
-    void Start() {
-        myPlayer = GetComponentInParent<Player>();
+    public void Start()
+    {
+        Player myPlayer = GetComponent<Player>();
         playerNumber = myPlayer.playerNumber;
-        inputAxis = "Player" + playerNumber;
+        Debug.Log("Created player " + playerNumber);
+    }
+
+    public int PlayerNumber() {
+        return playerNumber;
     }
 
     public float GetInput() {
-        Debug.Log("Reading input from " + inputAxis);
-        return Input.GetAxis(inputAxis);
+        return Input.GetAxis("Player" + playerNumber);
     }
 }

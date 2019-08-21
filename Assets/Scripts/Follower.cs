@@ -22,6 +22,9 @@ public class Follower : MonoBehaviour
                 ((Vector3)steps.Peek() - transform.position, transform.TransformDirection(Vector3.up));
                 transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
             }
+            
+
+            //TODO rotation;
         }
 
         if (nextInLine) {
@@ -47,11 +50,13 @@ public class Follower : MonoBehaviour
         steps = new Queue<Vector2>();
         for (int i = 0; i < GameOptions.framesBehind; i++) {
             Vector2 newStep = Vector2.Lerp(transform.position, target, (float)i / (float)stepsBehind);
+            //Debug.Log("Adding step: " + newStep);
             steps.Enqueue(newStep);
         }
     }
     public void Stop() {
         following = false;
+       // Debug.Log(this.name + " is stopping.");
     }
     public void StopAll() {
         Stop();
