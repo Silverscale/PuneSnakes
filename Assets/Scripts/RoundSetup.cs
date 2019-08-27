@@ -23,12 +23,7 @@ public class RoundSetup : MonoBehaviour {
             //usando GetComponentInParent<Player>();
             newSnake.transform.SetParent(player.transform);
 
-            //WARNING:  Referencia circular, hay que encontrar una forma mejor de hacer esto.
-            //          SnakeHead deberia tener la referencia a player, pero NO player a SnakeHead.
-            //          Esto permitiria reusar la clase Player en otros modos de juego.
             newSnake.SetPlayer(player);
-            player.SetSnake(newSnake);
-
 
             //Position and scale the snakes for the game start
             Transform snakeTransform = newSnake.gameObject.GetComponent<Transform>();

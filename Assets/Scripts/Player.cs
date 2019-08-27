@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     static private List<Player> playerList = new List<Player>();
     public int playerNumber { get; private set;}
     private bool active = true;
-    private SnakeHead mySnake;
 
     public int Score { get; private set; } = 0;
 
@@ -44,10 +43,6 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SetSnake(SnakeHead newSnake) {
-        mySnake = newSnake;
-    }
-
     //Agrega el Player que acaba de ser creado a la playerList, y toma de ahi el playerNumber
     private void Register() {
         playerList.Add(this);
@@ -55,8 +50,6 @@ public class Player : MonoBehaviour
     }
 
     public void Disable() {
-        mySnake.enabled = false;
-        mySnake.GetComponent<SnakeMovement>().Stop();
         active = false;
     }
 

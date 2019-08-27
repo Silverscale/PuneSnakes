@@ -42,6 +42,13 @@ public class Follower : MonoBehaviour
             nextInLine.InitializeSteps(transform.position);
         }
     }
+    private Vector2 TailPosition() {
+        Vector2 position = transform.position;
+        if (nextInLine) {
+            position = nextInLine.GetLastFollowerPosition();
+        }
+        return position;
+    }
 
     public void InitializeSteps(Vector2 target) {
         steps = new Queue<Vector2>();
