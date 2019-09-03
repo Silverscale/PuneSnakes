@@ -17,6 +17,6 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
 
     public float GetInput() {
         Debug.Log("Reading input from " + inputAxis);
-        return Input.GetAxis(inputAxis);
+        return Input.GetAxisRaw(inputAxis);
     }
 }

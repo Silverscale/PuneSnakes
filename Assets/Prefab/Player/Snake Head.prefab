@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: -5466283423528021031}
   - component: {fileID: 5976051726832341047}
   - component: {fileID: -920009627727879694}
+  - component: {fileID: 7147262381364349438}
   - component: {fileID: 5976051726832341044}
   - component: {fileID: 15346664691508775}
   m_Layer: 0
   m_Name: Snake Head
-  m_TagString: Untagged
+  m_TagString: SnakeHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,10 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8e739895cb4be4881f4578c634baef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldAutoExpand: 1
-  autoExpandCDInSeconds: 2
-  bodyChunk: {fileID: 825051262636825227, guid: a6e7af858baf86444bca47aec8eb00f9,
-    type: 3}
 --- !u!114 &5976051726832341047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +75,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26a11fe72628f845b12085603cec79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7147262381364349438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5976051726832341051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c328b8bb68dde45883fbec7e4d9b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoExpandCDInSeconds: 2
+  bodyChunk: {fileID: 825051262636825227, guid: a6e7af858baf86444bca47aec8eb00f9,
+    type: 3}
 --- !u!50 &5976051726832341044
 Rigidbody2D:
   serializedVersion: 4

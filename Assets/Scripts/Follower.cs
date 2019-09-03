@@ -12,8 +12,8 @@ public class Follower : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 nextStep = steps.Dequeue();
         if (following) {
+            Vector2 nextStep = steps.Dequeue();
             transform.position = nextStep;
 
             if ((Vector3)steps.Peek() - transform.position != Vector3.zero && transform.TransformDirection(Vector3.up) != Vector3.zero)
@@ -42,6 +42,13 @@ public class Follower : MonoBehaviour
             nextInLine.InitializeSteps(transform.position);
         }
     }
+    private Vector2 TailPosition() {
+        Vector2 position = transform.position;
+        if (nextInLine) {
+            position = nextInLine.GetLastFollowerPosition();
+        }
+        return position;
+    }
 
     public void InitializeSteps(Vector2 target) {
         steps = new Queue<Vector2>();
@@ -69,5 +76,12 @@ public class Follower : MonoBehaviour
             position = transform.position;
         }
         return position;
+    }
+
+    public void SelfDestruct() {
+        if (nextInLine) {
+            nextInLine.SelfDestruct();
+        }
+        Destroy(gameObject);
     }
 }
