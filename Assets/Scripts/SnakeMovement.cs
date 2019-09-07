@@ -10,10 +10,13 @@ public class SnakeMovement : MonoBehaviour
     private ISnakeController myController;
     private Rigidbody2D myRigidbody2D;
     private bool isMoving = false;
+    private bool justSpawned = true;
+    private int framesCounter;
 
     private void Awake() {
         moveSpeed = GameOptions.forward;
         turnSpeed = GameOptions.turning;
+        framesCounter = GameOptions.framesBehind;
 
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myController = GetComponent<ISnakeController>();
@@ -21,6 +24,7 @@ public class SnakeMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        CheckIfIShouldStartMoving();
         if (isMoving) 
         {
             float input = myController.GetInput();
@@ -35,11 +39,22 @@ public class SnakeMovement : MonoBehaviour
         }
     }
 
+    private void CheckIfIShouldStartMoving() {
+        if (!isMoving && justSpawned && framesCounter == 0) {
+            Resume();
+        }
+        else if (framesCounter > 0) {
+            framesCounter--;
+        }
+    }
+
     public void Stop() {
         isMoving = false;
+        justSpawned = false; // this should stop CheckIfIShouldStartMoving from reactivating a dead chunk
     }
 
     public void Resume() {
         isMoving = true;
+        justSpawned = false;
     }
 }

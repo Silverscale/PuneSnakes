@@ -6,7 +6,7 @@ using UnityEngine;
 public class SnakeAutoExpand : MonoBehaviour
 {
     [SerializeField] private float autoExpandCDInSeconds = 2f;
-    [SerializeField] private Follower bodyChunk = default;
+    [SerializeField] private SnakeBodyChunk bodyChunk = default;
 
     private SnakeHead mySnakeHead;
     private Coroutine expanding;
@@ -19,6 +19,7 @@ public class SnakeAutoExpand : MonoBehaviour
 
     //Controls when the snake should start or stop expanding, based on mySnakeHead.IsActive
     void Update() {
+        Debug.Log("Is Snake Active? " + mySnakeHead.IsActive);
         if (mySnakeHead.IsActive && !ImExpanding) {
             //The snake should start expanding
             expanding = StartCoroutine(AutoExpand());
@@ -41,13 +42,13 @@ public class SnakeAutoExpand : MonoBehaviour
 
     //Spawns a bodyChunk and gives it to SnakeHead to add it to the line.
     private void SpawnFollower() {
-        Follower newFollower = GameObject.Instantiate<Follower>(
+        SnakeBodyChunk newFollower = GameObject.Instantiate<SnakeBodyChunk>(
                     bodyChunk,
                     mySnakeHead.TailPosition(),
                     Quaternion.identity,
                     transform.parent);
 
         newFollower.transform.localScale = Vector3.one * GameOptions.snakeScale;
-        mySnakeHead.AddFollower(newFollower);
+        mySnakeHead.AddBodyChunk(newFollower);
     }
 }

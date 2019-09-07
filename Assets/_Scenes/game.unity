@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19da821689f36048a1f8f593b34c008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snakePrefab: {fileID: -5466283423528021031, guid: 6b0a87c4eed78b64784f0482099bf37e,
+  snakePrefab: {fileID: 8264393270438544940, guid: 4724be20574c6cb4dbb280b85b0d746a,
     type: 3}
   spawnPoint:
   - {fileID: 251003574}

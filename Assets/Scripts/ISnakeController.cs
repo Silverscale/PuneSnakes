@@ -6,4 +6,5 @@ public interface ISnakeController {
 
     float GetInput();//returns the value of the inputAxis, to be used for turning.
 
+    void SetControllerFollowingMe(FollowTheCongaLine controller);
 }
