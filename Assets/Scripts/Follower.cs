@@ -8,6 +8,7 @@ public class Follower : MonoBehaviour
     private Queue<Vector2> steps;
     [SerializeField] private int stepsBehind = 100;
     private bool following = true;
+    public int numberInLine = 0;
 
 
     void FixedUpdate()

@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnakeHead : MonoBehaviour
-{
+public class SnakeHead : MonoBehaviour {
     private Follower follower;
     public bool IsAlive { get; private set; } = true;
     public bool IsActive { get; private set; } = false;
     private SnakeMovement myMovement;
     private Player myPlayer;
-
+    public int followerCount { get; private set; } = 0;
 
     void Awake() {
         myMovement = GetComponent<SnakeMovement>();
@@ -22,6 +21,8 @@ public class SnakeHead : MonoBehaviour
     }
 
     public void AddFollower(Follower theFollower) {
+        followerCount++;
+        theFollower.numberInLine = followerCount;
         if (follower) {
             follower.AddFollower(theFollower);
         }
