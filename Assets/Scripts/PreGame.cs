@@ -8,6 +8,7 @@ public class PreGame : MonoBehaviour
 
     void Start()
     {
+        GameOptions.CheckIfLoaded();
         //Clear the list of players
         Player.ClearPlayerList();
         for (int i = 0; i < GameOptions.players; i++) {

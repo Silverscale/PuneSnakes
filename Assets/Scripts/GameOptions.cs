@@ -1,17 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameOptions : MonoBehaviour
 {
-    private readonly string PLAYERS_KEY = "players";
-    private readonly string DELAY_KEY = "delay";
-    private readonly string FRAMES_BEHIND_KEY = "framesBehind";
-    private readonly string FORWARD_KEY = "forward";
-    private readonly string TURNING_KEY = "turning";
-    private readonly string ROUNDS_KEY = "rounds";
-    private readonly string SNAKE_SIZE = "snakeScale";
+    private static readonly string PLAYERS_KEY = "players";
+    private static readonly string DELAY_KEY = "delay";
+    private static readonly string FRAMES_BEHIND_KEY = "framesBehind";
+    private static readonly string FORWARD_KEY = "forward";
+    private static readonly string TURNING_KEY = "turning";
+    private static readonly string ROUNDS_KEY = "rounds";
+    private static readonly string SNAKE_SIZE = "snakeScale";
+
+    private static bool optionsLoaded = false;
 
     public static int players;
     public static float delay;
@@ -34,6 +37,50 @@ public class GameOptions : MonoBehaviour
     public void Start()
     {
         LoadOptions();
+        SetSlidersToLoadedValue();
+    }
+
+    public static void CheckIfLoaded() {
+        if (!optionsLoaded) {
+            LoadOptions();
+        }
+    }
+
+    private void SetSlidersToLoadedValue() {
+        Debug.Log("***** Loading options *****");
+        if (PlayerPrefs.HasKey(PLAYERS_KEY))
+        {
+            playerSlider.value = players;
+        }
+
+        if (PlayerPrefs.HasKey(DELAY_KEY))
+        {
+            delaySlider.value = delay;
+        }
+
+        if (PlayerPrefs.HasKey(FRAMES_BEHIND_KEY))
+        {
+            framesBehindSlider.value = framesBehind;
+        }
+
+        if (PlayerPrefs.HasKey(FORWARD_KEY))
+        {
+            forwardSlider.value = forward;
+        }
+
+        if (PlayerPrefs.HasKey(TURNING_KEY))
+        {
+            turningSlider.value = turning;
+        }
+
+        if (PlayerPrefs.HasKey(ROUNDS_KEY))
+        {
+            roundsSlider.value = rounds;
+        }
+        if (PlayerPrefs.HasKey(SNAKE_SIZE)) {
+            snakeScaleSlider.value = snakeScale;
+        }
+        Debug.Log("***************************");
     }
 
     public void SetOptions() {
@@ -74,49 +121,49 @@ public class GameOptions : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void LoadOptions()
+    public static void LoadOptions()
     {
         Debug.Log("***** Loading options *****");
         if (PlayerPrefs.HasKey(PLAYERS_KEY))
         {
-            playerSlider.value = PlayerPrefs.GetFloat(PLAYERS_KEY);
-            Debug.Log("player found with a value of " + playerSlider.value);
+            players = (int)PlayerPrefs.GetFloat(PLAYERS_KEY);
+            Debug.Log("player found with a value of " + players);
         }
 
         if (PlayerPrefs.HasKey(DELAY_KEY))
         {
-            delaySlider.value = PlayerPrefs.GetFloat(DELAY_KEY);
-            Debug.Log("delay found with a value of " + delaySlider.value);
+            delay = PlayerPrefs.GetFloat(DELAY_KEY);
+            Debug.Log("delay found with a value of " + delay);
         }
 
         if (PlayerPrefs.HasKey(FRAMES_BEHIND_KEY))
         {
-            framesBehindSlider.value = (int)PlayerPrefs.GetFloat(FRAMES_BEHIND_KEY);
-            Debug.Log("framesBehind found with a value of " + framesBehindSlider.value);
+            framesBehind = (int)PlayerPrefs.GetFloat(FRAMES_BEHIND_KEY);
+            Debug.Log("framesBehind found with a value of " + framesBehind);
         }
 
         if (PlayerPrefs.HasKey(FORWARD_KEY))
         {
-            forwardSlider.value = PlayerPrefs.GetFloat(FORWARD_KEY);
-            Debug.Log("forward found with a value of " + forwardSlider.value);
+            forward = PlayerPrefs.GetFloat(FORWARD_KEY);
+            Debug.Log("forward found with a value of " + forward);
         }
 
         if (PlayerPrefs.HasKey(TURNING_KEY))
         {
-            turningSlider.value = PlayerPrefs.GetFloat(TURNING_KEY);
-            Debug.Log("turning found with a value of " + turningSlider.value);
+            turning = PlayerPrefs.GetFloat(TURNING_KEY);
+            Debug.Log("turning found with a value of " + turning);
         }
 
         if (PlayerPrefs.HasKey(ROUNDS_KEY))
         {
-            roundsSlider.value = PlayerPrefs.GetFloat(ROUNDS_KEY);
-            Debug.Log("rounds found with a value of " + roundsSlider.value);
+            rounds = (int)PlayerPrefs.GetFloat(ROUNDS_KEY);
+            Debug.Log("rounds found with a value of " + rounds);
         }
         if (PlayerPrefs.HasKey(SNAKE_SIZE)) {
-            snakeScaleSlider.value = PlayerPrefs.GetFloat(SNAKE_SIZE);
-            Debug.Log("snake scale found with a value of " + snakeScaleSlider.value);
+            snakeScale = PlayerPrefs.GetFloat(SNAKE_SIZE);
+            Debug.Log("snake scale found with a value of " + snakeScale);
         }
         Debug.Log("***************************");
+        optionsLoaded = true;
     }
-
 }
