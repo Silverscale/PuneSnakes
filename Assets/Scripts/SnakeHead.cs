@@ -9,9 +9,12 @@ public class SnakeHead : MonoBehaviour {
     private SnakeMovement myMovement;
     private Player myPlayer;
     public int followerCount { get; private set; } = 0;
+    private Transform tail;
+
 
     void Awake() {
         myMovement = GetComponent<SnakeMovement>();
+        tail = transform;
     }
 
     void FixedUpdate() {
@@ -23,6 +26,7 @@ public class SnakeHead : MonoBehaviour {
     public void AddFollower(Follower theFollower) {
         followerCount++;
         theFollower.numberInLine = followerCount;
+        tail = theFollower.transform;
         if (follower) {
             follower.AddFollower(theFollower);
         }
@@ -59,12 +63,8 @@ public class SnakeHead : MonoBehaviour {
         }
     }
 
-    public Vector2 TailPosition() {
-        Vector2 position = transform.position;
-        if (follower) {
-            position = follower.GetLastFollowerPosition();
-        }
-        return position;
+    public Transform TailTransform() {
+        return tail;
     }
 
     public void SetPlayer(Player player) {
