@@ -8,30 +8,35 @@ public class Follower : MonoBehaviour
     private Queue<Vector2> steps;
     [SerializeField] private int stepsBehind = 100;
     private bool following = true;
+    public int numberInLine = 0;
 
 
     void FixedUpdate()
     {
         if (following) {
-            Vector2 nextStep = steps.Dequeue();
-            transform.position = nextStep;
-
-            if ((Vector3)steps.Peek() - transform.position != Vector3.zero && transform.TransformDirection(Vector3.up) != Vector3.zero)
-            { 
-                Quaternion rotation = Quaternion.LookRotation
-                ((Vector3)steps.Peek() - transform.position, transform.TransformDirection(Vector3.up));
-                transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
-            }
+            MakeAStep();
+            RotateTowardsNextStep();
         }
-
         if (nextInLine) {
             nextInLine.AddStep(transform.position);
         }
     }
 
+    private void MakeAStep() {
+        Vector2 nextStep = steps.Dequeue();
+        transform.position = nextStep;
+    }
+    private void RotateTowardsNextStep() {
+        var direction = steps.Peek() - (Vector2)transform.position;
+        if (direction != Vector2.zero) {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+    }
     public void AddStep(Vector2 step) {
         steps.Enqueue(step);
     }
+
 
     public void AddFollower(Follower theFollower) {
         if (nextInLine) {
@@ -42,13 +47,7 @@ public class Follower : MonoBehaviour
             nextInLine.InitializeSteps(transform.position);
         }
     }
-    private Vector2 TailPosition() {
-        Vector2 position = transform.position;
-        if (nextInLine) {
-            position = nextInLine.GetLastFollowerPosition();
-        }
-        return position;
-    }
+
 
     public void InitializeSteps(Vector2 target) {
         steps = new Queue<Vector2>();
@@ -67,13 +66,10 @@ public class Follower : MonoBehaviour
         }
     }
 
-    public Vector2 GetLastFollowerPosition() {
-        Vector2 position = new Vector2();
+    public Transform GetLastFollowerTransform() {
+        Transform position = transform;
         if (nextInLine) {
-            position = nextInLine.GetLastFollowerPosition();
-        }
-        else {
-            position = transform.position;
+            position = nextInLine.GetLastFollowerTransform();
         }
         return position;
     }

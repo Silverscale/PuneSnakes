@@ -43,8 +43,8 @@ public class SnakeAutoExpand : MonoBehaviour
     private void SpawnFollower() {
         Follower newFollower = GameObject.Instantiate<Follower>(
                     bodyChunk,
-                    mySnakeHead.TailPosition(),
-                    Quaternion.identity,
+                    mySnakeHead.TailTransform().position,
+                    mySnakeHead.TailTransform().rotation,
                     transform.parent);
 
         newFollower.transform.localScale = Vector3.one * GameOptions.snakeScale;
