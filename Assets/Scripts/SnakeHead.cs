@@ -11,16 +11,37 @@ public class SnakeHead : MonoBehaviour {
     public int followerCount { get; private set; } = 0;
     private Transform tail;
 
+    private bool onAir;
+    private int airTime;
+    [SerializeField] private int jumpLength = 100;
 
     void Awake() {
         myMovement = GetComponent<SnakeMovement>();
         tail = transform;
+        onAir = false;
+        
     }
 
     void FixedUpdate() {
-        if (follower) {
-            follower.AddStep(transform.position);
+
+        //Jumpy stuff horrible
+        airTime--;
+        if (airTime <=0)
+        {
+            onAir = false;
+            bool isJumping = myMovement.IsJumping();
+            if (isJumping)
+            {
+                Jump();
+            }
+
         }
+        
+        //
+        if (follower) {
+            follower.AddStep(transform.position, false);//aca va IsJumping pero veremos
+        }
+
     }
 
     public void AddFollower(Follower theFollower) {
@@ -43,7 +64,11 @@ public class SnakeHead : MonoBehaviour {
             if (follower) {
                 //only kill if im not colliding with my follower
                 if (col.gameObject != follower.gameObject)
+                {
+                    if (!onAir) //only collide if down
                     this.Kill();
+                }
+                  
             }
             else {
                 //If I dont have a follower, any collision kills
@@ -63,6 +88,14 @@ public class SnakeHead : MonoBehaviour {
         }
     }
 
+    public void Jump()
+    {
+        Debug.Log("YOU JUMPED");
+            airTime = jumpLength;
+        onAir = true;
+        
+
+    }
     public Transform TailTransform() {
         return tail;
     }

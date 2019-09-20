@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3814328857427410003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: C:/GitHub/PuneSnakes/FMOD/PSnakes Fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637031126497201338
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1000
+  Exists: 1
+--- !u!114 &-2432584348705825962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: C:/GitHub/PuneSnakes/FMOD/PSnakes Fmod/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637031126497211340
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 688
+  Exists: 1
 --- !u!114 &-491744393161321347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,15 +73,15 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 7238051371680689594}
-  - {fileID: -491744393161321347}
+  - {fileID: -2432584348705825962}
+  - {fileID: -3814328857427410003}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
-  - {fileID: -491744393161321347}
+  - {fileID: -3814328857427410003}
   StringsBanks:
-  - {fileID: 7238051371680689594}
-  stringsBankWriteTime: 637030346459948618
+  - {fileID: -2432584348705825962}
+  stringsBankWriteTime: 637031126497211340
   cacheVersion: 3
 --- !u!114 &7238051371680689594
 MonoBehaviour:

@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrunkStep : MonoBehaviour
+public class TrunkStep
 
     
 
 {
 
-    private Vector2 stepPosition;
-    private bool high;
+    public readonly Vector2 stepPosition;
+    public readonly bool high;
 
     // Start is called before the first frame update
+
+    public TrunkStep(Vector2 stepPosParam, bool isHigh)
+    {
+        stepPosition = stepPosParam;
+        high = isHigh;
+    }
     void Start()
     {
-         stepPosition = new Vector2(0,0);
+       
 
-    high = false;
 
     }
 
@@ -24,5 +29,10 @@ public class TrunkStep : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool IsHigh()
+    {
+        return high;
     }
 }

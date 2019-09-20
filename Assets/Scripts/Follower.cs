@@ -5,7 +5,8 @@ using UnityEngine;
 public class Follower : MonoBehaviour
 {
     private Follower nextInLine;
-    private Queue<Vector2> steps;
+    //private Queue<Vector2> steps;
+    private Queue<TrunkStep> steps;
     [SerializeField] private int stepsBehind = 100;
     private bool following = true;
     public int numberInLine = 0;
@@ -18,23 +19,26 @@ public class Follower : MonoBehaviour
             RotateTowardsNextStep();
         }
         if (nextInLine) {
-            nextInLine.AddStep(transform.position);
+           
+            nextInLine.AddStep(transform.position, false);
         }
     }
 
     private void MakeAStep() {
-        Vector2 nextStep = steps.Dequeue();
-        transform.position = nextStep;
+        //Vector2 nextStep = steps.Dequeue();
+        TrunkStep nextStep = steps.Dequeue();
+        transform.position = nextStep.stepPosition;
     }
     private void RotateTowardsNextStep() {
-        var direction = steps.Peek() - (Vector2)transform.position;
+        var direction = steps.Peek().stepPosition - (Vector2)transform.position;
         if (direction != Vector2.zero) {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
-    public void AddStep(Vector2 step) {
-        steps.Enqueue(step);
+    public void AddStep(Vector2 step, bool high) {
+        TrunkStep tempStep = new TrunkStep(step, high);
+        steps.Enqueue(tempStep);
     }
 
 
@@ -50,10 +54,11 @@ public class Follower : MonoBehaviour
 
 
     public void InitializeSteps(Vector2 target) {
-        steps = new Queue<Vector2>();
+        steps = new Queue<TrunkStep>();
         for (int i = 0; i < GameOptions.framesBehind; i++) {
             Vector2 newStep = Vector2.Lerp(transform.position, target, (float)i / (float)stepsBehind);
-            steps.Enqueue(newStep);
+            TrunkStep newTrunkStep = new TrunkStep(newStep, false);
+            steps.Enqueue(newTrunkStep);
         }
     }
     public void Stop() {
