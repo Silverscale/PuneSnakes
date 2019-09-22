@@ -11,7 +11,7 @@ public class ScoreBoard : MonoBehaviour
     private int[] previousScores;
     void Start()
     {
-        previousScores = new int[GameOptions.players];
+        previousScores = new int[Player.GetList().Count];
         scoreTMP = GetComponent<TextMeshProUGUI>();
         UpdateScoreString();
     }
@@ -26,7 +26,7 @@ public class ScoreBoard : MonoBehaviour
 
     private bool CheckForScoreChanges() {
         bool scoreChanged = false;
-        for (int i = 0; i < GameOptions.players; i++) {
+        for (int i = 0; i < Player.GetList().Count; i++) {
             int actualScore = Player.GetPlayer(i).Score;
             if (actualScore != previousScores[i]) {
                 scoreChanged = true;
