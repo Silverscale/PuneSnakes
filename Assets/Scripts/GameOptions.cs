@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class GameOptions : MonoBehaviour
 {
     private static readonly string PLAYERS_KEY = "players";
+    private static readonly string PLAYER1_KEY = "player1";
+    private static readonly string PLAYER2_KEY = "player2";
+    private static readonly string PLAYER3_KEY = "player3";
+    private static readonly string PLAYER4_KEY = "player4";
     private static readonly string DELAY_KEY = "delay";
     private static readonly string FRAMES_BEHIND_KEY = "framesBehind";
     private static readonly string FORWARD_KEY = "forward";
@@ -16,7 +20,8 @@ public class GameOptions : MonoBehaviour
 
     private static bool optionsLoaded = false;
 
-    public static int players;
+    public static int maxPlayers = 4;
+    public static bool[] isPlayerSelected = new bool[4];
     public static float delay;
     public static int framesBehind;
     public static float forward;
@@ -50,7 +55,7 @@ public class GameOptions : MonoBehaviour
         Debug.Log("***** Loading options *****");
         if (PlayerPrefs.HasKey(PLAYERS_KEY))
         {
-            playerSlider.value = players;
+            playerSlider.value = maxPlayers;
         }
 
         if (PlayerPrefs.HasKey(DELAY_KEY))
@@ -84,7 +89,7 @@ public class GameOptions : MonoBehaviour
     }
 
     public void SetOptions() {
-        players = (int)playerSlider.value;
+        maxPlayers = (int)playerSlider.value;
         delay = delaySlider.value;
         framesBehind = (int)framesBehindSlider.value;
         forward = forwardSlider.value;
@@ -93,11 +98,35 @@ public class GameOptions : MonoBehaviour
         snakeScale = snakeScaleSlider.value;
     }
 
+    public static void SetPlayer(int playerNumber, bool selected) {
+        isPlayerSelected[playerNumber] = selected;
+    }
     /*On macOS PlayerPrefs are stored in ~/Library/Preferences folder, 
      * in a file named unity.[company name].[product name].plist, where company and product names are the names set up in Project Settings.
      * The same .plist file is used for both Projects run in the Editor and standalone players.
          On Windows, PlayerPrefs are stored in the registry under HKCU\Software\[company name]\[product name] key,
          where company and product names are the names set up in Project Settings.*/
+
+    public static void SavePlayers() {
+        PlayerPrefs.SetInt(PLAYER1_KEY, boolToInt(isPlayerSelected[0]));
+        PlayerPrefs.SetInt(PLAYER2_KEY, boolToInt(isPlayerSelected[1]));
+        PlayerPrefs.SetInt(PLAYER3_KEY, boolToInt(isPlayerSelected[2]));
+        PlayerPrefs.SetInt(PLAYER4_KEY, boolToInt(isPlayerSelected[3]));
+    }
+    public static void LoadPlayers() {
+        isPlayerSelected[0] = intToBool(PlayerPrefs.GetInt(PLAYER1_KEY));
+        isPlayerSelected[1] = intToBool(PlayerPrefs.GetInt(PLAYER2_KEY));
+        isPlayerSelected[2] = intToBool(PlayerPrefs.GetInt(PLAYER3_KEY));
+        isPlayerSelected[3] = intToBool(PlayerPrefs.GetInt(PLAYER4_KEY));
+    }
+
+    private static int boolToInt(bool aBool) {
+        return aBool ? 1 : 0;
+    }
+
+    private static bool intToBool(int anInt) {
+        return (anInt == 1) ? true : false;
+    }
 
     public void SaveOptions()
     {
@@ -126,8 +155,8 @@ public class GameOptions : MonoBehaviour
         Debug.Log("***** Loading options *****");
         if (PlayerPrefs.HasKey(PLAYERS_KEY))
         {
-            players = (int)PlayerPrefs.GetFloat(PLAYERS_KEY);
-            Debug.Log("player found with a value of " + players);
+            maxPlayers = (int)PlayerPrefs.GetFloat(PLAYERS_KEY);
+            Debug.Log("player found with a value of " + maxPlayers);
         }
 
         if (PlayerPrefs.HasKey(DELAY_KEY))

@@ -9,11 +9,20 @@ public class PreGame : MonoBehaviour
     void Start()
     {
         GameOptions.CheckIfLoaded();
+    }
+
+    public void CreatePlayers() {
+        GameOptions.SavePlayers();
         //Clear the list of players
         Player.ClearPlayerList();
-        for (int i = 0; i < GameOptions.players; i++) {
+        for (int i = 0; i < GameOptions.isPlayerSelected.Length; i++) {
             //Create the players for the match
-            Player newPlayer = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
+            if (GameOptions.isPlayerSelected[i]) {
+                Player newPlayer = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
+                newPlayer.SetNumber(i);
+                Debug.Log("Manually assigned player number");
+                //TODO tell the player wich is his number
+            }
         }
     }
 }
