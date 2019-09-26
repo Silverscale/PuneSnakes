@@ -44,7 +44,7 @@ public class SnakeMovement : MonoBehaviour
                 if (speedMultiplier <= 0f) {
                     speedMultiplier = 0f;
                     isDecelerating = false;
-                    Stop();
+                    GetComponent<SnakeHead>().Wait();
                 }
                 actualSpeed = Mathf.Lerp(0f, moveSpeed, speedMultiplier);
             }
@@ -62,7 +62,8 @@ public class SnakeMovement : MonoBehaviour
         }       
     }
 
-    private void Accelerate() {
+    public void DecelerateAndStop() {
+        isDecelerating = true;
     }
 
     public void Stop() {
