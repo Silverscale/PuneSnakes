@@ -17,6 +17,7 @@ public class GameOptions : MonoBehaviour
     private static readonly string TURNING_KEY = "turning";
     private static readonly string ROUNDS_KEY = "rounds";
     private static readonly string SNAKE_SIZE = "snakeScale";
+    private static readonly string MAX_SPEED_DELAY = "maxSpeedDelay";
 
     private static bool optionsLoaded = false;
 
@@ -28,9 +29,9 @@ public class GameOptions : MonoBehaviour
     public static float turning;
     public static int rounds;
     public static float snakeScale;
+    public static float maxSpeedDelay;
 
-
-    public Slider playerSlider;
+    public Slider maxSpeedDelaySlider;
     public Slider delaySlider;
     public Slider framesBehindSlider;
     public Slider forwardSlider;
@@ -53,9 +54,9 @@ public class GameOptions : MonoBehaviour
 
     private void SetSlidersToLoadedValue() {
         Debug.Log("***** Loading options *****");
-        if (PlayerPrefs.HasKey(PLAYERS_KEY))
+        if (PlayerPrefs.HasKey(MAX_SPEED_DELAY))
         {
-            playerSlider.value = maxPlayers;
+            maxSpeedDelaySlider.value = maxSpeedDelay;
         }
 
         if (PlayerPrefs.HasKey(DELAY_KEY))
@@ -89,7 +90,8 @@ public class GameOptions : MonoBehaviour
     }
 
     public void SetOptions() {
-        maxPlayers = (int)playerSlider.value;
+        maxPlayers = 4;
+        maxSpeedDelay = maxSpeedDelaySlider.value;
         delay = delaySlider.value;
         framesBehind = (int)framesBehindSlider.value;
         forward = forwardSlider.value;
@@ -130,13 +132,14 @@ public class GameOptions : MonoBehaviour
 
     public void SaveOptions()
     {
-        PlayerPrefs.SetFloat(PLAYERS_KEY, playerSlider.value);
+        PlayerPrefs.SetFloat(PLAYERS_KEY, 4);
         PlayerPrefs.SetFloat(DELAY_KEY, delaySlider.value);
         PlayerPrefs.SetFloat(FRAMES_BEHIND_KEY, framesBehindSlider.value);
         PlayerPrefs.SetFloat(FORWARD_KEY, forwardSlider.value);
         PlayerPrefs.SetFloat(TURNING_KEY, turningSlider.value);
         PlayerPrefs.SetFloat(ROUNDS_KEY, roundsSlider.value);
         PlayerPrefs.SetFloat(SNAKE_SIZE, snakeScaleSlider.value);
+        PlayerPrefs.SetFloat(MAX_SPEED_DELAY, maxSpeedDelaySlider.value);
 
         /*Debug.Log("***** Saving options *****");
         Debug.Log("player: " + playerSlider.value);
@@ -163,6 +166,11 @@ public class GameOptions : MonoBehaviour
         {
             delay = PlayerPrefs.GetFloat(DELAY_KEY);
             Debug.Log("delay found with a value of " + delay);
+        }
+
+        if (PlayerPrefs.HasKey(MAX_SPEED_DELAY)) {
+            maxSpeedDelay = PlayerPrefs.GetFloat(MAX_SPEED_DELAY);
+            Debug.Log("speed delay found with a value of " + maxSpeedDelay);
         }
 
         if (PlayerPrefs.HasKey(FRAMES_BEHIND_KEY))

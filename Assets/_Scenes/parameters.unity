@@ -2434,7 +2434,7 @@ GameObject:
   - component: {fileID: 988751814}
   - component: {fileID: 988751813}
   m_Layer: 5
-  m_Name: Players Slider
+  m_Name: Speed Delay Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2505,10 +2505,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 218732588}
   m_HandleRect: {fileID: 386521420}
   m_Direction: 0
-  m_MinValue: 2
-  m_MaxValue: 4
-  m_WholeNumbers: 1
-  m_Value: 2
+  m_MinValue: 0.01
+  m_MaxValue: 5
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2526,7 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255c70bae1f676d48b0fc31a3aa11b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label: 'Players:'
+  label: 'MaxSpeed Delay:'
   text: {fileID: 1497148852}
 --- !u!1 &1026247753
 GameObject:
@@ -3357,7 +3357,7 @@ GameObject:
   - component: {fileID: 1497148853}
   - component: {fileID: 1497148852}
   m_Layer: 5
-  m_Name: Players Text
+  m_Name: Speed Delay Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3404,7 +3404,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3415,7 +3415,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Players
+  m_Text: MaxSpeed Delay
 --- !u!222 &1497148853
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4418,7 +4418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c739d2c4ebf72429fcea9a1a9bd21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSlider: {fileID: 988751813}
+  maxSpeedDelaySlider: {fileID: 988751813}
   delaySlider: {fileID: 240139825}
   framesBehindSlider: {fileID: 330013427}
   forwardSlider: {fileID: 238136672}
