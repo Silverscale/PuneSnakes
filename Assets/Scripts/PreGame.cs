@@ -21,7 +21,6 @@ public class PreGame : MonoBehaviour
                 Player newPlayer = Object.Instantiate<GameObject>(playerPrefab.gameObject).GetComponent<Player>();
                 newPlayer.SetNumber(i);
                 Debug.Log("Manually assigned player number");
-                //TODO tell the player wich is his number
             }
         }
     }

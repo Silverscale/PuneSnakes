@@ -37,4 +37,10 @@ public class RoundFinisher : MonoBehaviour
     public void ForceRoundEnd() {
         FinishRound();
     }
+
+    //Called from the "Menu" button, in the Game scene
+    public void BackToMenu() {
+        ClearBoard();
+        loader.LoadScene(1);
+    }
 }

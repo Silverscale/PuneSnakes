@@ -202,9 +202,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1635528266}
-        m_MethodName: LoadScene
-        m_Mode: 3
+      - m_Target: {fileID: 348637181}
+        m_MethodName: BackToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2158,18 +2158,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1635528266 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1656414986603394749, guid: 80c0634f4fdee904ca59619e900a413b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1656414986579954103}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bec09d219680daa44908f7d82a895a4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1720972065
 GameObject:
   m_ObjectHideFlags: 0
