@@ -15,8 +15,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: FMOD/PSnakes Fmod/PSnakes Fmod.fspro
-  SourceBankPathUnformatted: FMOD/PSnakes Fmod/Build
+  sourceProjectPath: E:/Proyetos Fmod/Punesnake/punesnake/punesnake.fspro
+  SourceBankPathUnformatted: E:/Proyetos Fmod/Punesnake/punesnake/Build
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0
@@ -77,6 +77,8 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - juego
+  - Main Menu
   BanksToLoad: []
   LiveUpdatePort: 9264
