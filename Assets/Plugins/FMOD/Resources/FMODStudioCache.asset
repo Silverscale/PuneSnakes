@@ -20,6 +20,72 @@ MonoBehaviour:
   - Name: Desktop
     Value: 600192
   Exists: 1
+--- !u!114 &-8533197633708263050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ready c-voz
+  m_EditorClassIdentifier: 
+  Path: event:/ready c-voz
+  guid: 4506c00739488e4b81b8f1acdeb488d1
+  Banks:
+  - {fileID: -3070820986697859630}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4153
+--- !u!114 &-7763142878333587816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/muerto
+  m_EditorClassIdentifier: 
+  Path: event:/muerto
+  guid: c17a91c27bb00e40a7f94bbf863d7b26
+  Banks:
+  - {fileID: -3070820986697859630}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
+--- !u!114 &-7411103378666122927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: E:/Proyetos Fmod/PSnake/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637052087519389124
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1058
+  Exists: 1
 --- !u!114 &-7030974828670210019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +126,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1000
   Exists: 1
+--- !u!114 &-3987138449219033641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/dragones chinos
+  m_EditorClassIdentifier: 
+  Path: event:/dragones chinos
+  guid: a9de4395a00e7648bfe44ea9a13ab8bd
+  Banks:
+  - {fileID: -3070820986697859630}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 40000
 --- !u!114 &-3814328857427410003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +169,26 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1000
   Exists: 0
+--- !u!114 &-3070820986697859630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Play.bank
+  m_EditorClassIdentifier: 
+  Path: E:/Proyetos Fmod/PSnake/Build/Desktop/Play.bank
+  SubDir: 
+  lastModified: 637052087520660693
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 600192
+  Exists: 1
 --- !u!114 &-2432584348705825962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +209,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 688
   Exists: 0
+--- !u!114 &-880975222930712483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/paso cursor
+  m_EditorClassIdentifier: 
+  Path: event:/paso cursor
+  guid: a2951a7c6d1f2c48bec8a1d3ff90f87e
+  Banks:
+  - {fileID: 3822508200317695374}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 750
 --- !u!114 &-491744393161321347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,24 +265,67 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 2285506691576403800}
-  - {fileID: 2826804123452088883}
-  - {fileID: -7030974828670210019}
-  - {fileID: -9054270756175560466}
+  - {fileID: -7411103378666122927}
+  - {fileID: 51018624110630647}
+  - {fileID: 3822508200317695374}
+  - {fileID: -3070820986697859630}
   EditorEvents:
-  - {fileID: 2819285663775765595}
-  - {fileID: 5827396652606318583}
-  - {fileID: 9190776132055676133}
-  - {fileID: 1789333206163086214}
-  - {fileID: 6204071509812412563}
-  - {fileID: 7917627250402290325}
+  - {fileID: 275729895956848271}
+  - {fileID: -880975222930712483}
+  - {fileID: 4202148398412311260}
+  - {fileID: -8533197633708263050}
+  - {fileID: -3987138449219033641}
+  - {fileID: -7763142878333587816}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 2826804123452088883}
+  - {fileID: 51018624110630647}
   StringsBanks:
-  - {fileID: 2285506691576403800}
-  stringsBankWriteTime: 637052001531175558
+  - {fileID: -7411103378666122927}
+  stringsBankWriteTime: 637052087519389124
   cacheVersion: 3
+--- !u!114 &51018624110630647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: E:/Proyetos Fmod/PSnake/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637052087519329137
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1000
+  Exists: 1
+--- !u!114 &275729895956848271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/seleccion pj
+  m_EditorClassIdentifier: 
+  Path: event:/seleccion pj
+  guid: 12f036803080b2469fcdc39e7c9d3039
+  Banks:
+  - {fileID: 3822508200317695374}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 750
 --- !u!114 &1789333206163086214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +412,49 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1000
   Exists: 1
+--- !u!114 &3822508200317695374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MMenu.bank
+  m_EditorClassIdentifier: 
+  Path: E:/Proyetos Fmod/PSnake/Build/Desktop/MMenu.bank
+  SubDir: 
+  lastModified: 637052087519978764
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 477504
+  Exists: 1
+--- !u!114 &4202148398412311260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/dragones chinos menu
+  m_EditorClassIdentifier: 
+  Path: event:/dragones chinos menu
+  guid: a683f7c284195e48a258be69b728f3fb
+  Banks:
+  - {fileID: 3822508200317695374}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 32000
 --- !u!114 &5827396652606318583
 MonoBehaviour:
   m_ObjectHideFlags: 0
