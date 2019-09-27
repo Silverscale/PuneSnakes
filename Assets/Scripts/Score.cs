@@ -76,7 +76,7 @@ public class Score : MonoBehaviour
 
         else
         {
-            SoundManager.Instance.PlayDeathSFX();
+            //SoundManager.Instance.PlayDeathSFX();
         }
     }
 
