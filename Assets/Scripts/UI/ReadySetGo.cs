@@ -10,7 +10,7 @@ public class ReadySetGo : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        //SoundManager.Instance.PlayReadySetGo();
+        SoundManager.Instance.PlayReadySetGo();
         text.text = "Ready!";
     }
 
