@@ -23,6 +23,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1500
+--- !u!114 &-7417798746402464587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/dragones chinos
+  m_EditorClassIdentifier: 
+  Path: event:/dragones chinos
+  guid: a9de4395a00e7648bfe44ea9a13ab8bd
+  Banks:
+  - {fileID: 9178743444464641042}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 40000
 --- !u!114 &-6324048333789479763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: C:/Users/Dare/Documents/GitHub/punesnakes/FMOD/PSnake/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637050971767911220
+  lastModified: 637052117256156566
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -63,6 +86,26 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1000
   Exists: 1
+--- !u!114 &-5370984705666869841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MMenu.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/Dare/Documents/GitHub/punesnakes/FMOD/Desktop/MMenu.bank
+  SubDir: 
+  lastModified: 637052123761273630
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 477504
+  Exists: 1
 --- !u!114 &-4348603080588744808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +129,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 750
+--- !u!114 &-4211276763758206047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/muerto
+  m_EditorClassIdentifier: 
+  Path: event:/muerto
+  guid: c17a91c27bb00e40a7f94bbf863d7b26
+  Banks:
+  - {fileID: 9178743444464641042}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
 --- !u!114 &-3561912827797416400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,12 +167,35 @@ MonoBehaviour:
   Path: C:/Users/Dare/Documents/GitHub/punesnakes/FMOD/PSnake/Build/Desktop/Main
     Menu.bank
   SubDir: 
-  lastModified: 637050971768460808
+  lastModified: 637052117256106612
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 477504
   Exists: 1
+--- !u!114 &-3302839085238441768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/paso cursor
+  m_EditorClassIdentifier: 
+  Path: event:/paso cursor
+  guid: a2951a7c6d1f2c48bec8a1d3ff90f87e
+  Banks:
+  - {fileID: -5370984705666869841}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 750
 --- !u!114 &-2945341322823666575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,12 +210,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: C:/Users/Dare/Documents/GitHub/punesnakes/FMOD/PSnake/Build/Desktop/juego.bank
   SubDir: 
-  lastModified: 637050971769120437
+  lastModified: 637052117256526373
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 600192
   Exists: 1
+--- !u!114 &-1479633110744437211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/Dare/Documents/GitHub/punesnakes/FMOD/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637052123760324187
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1000
+  Exists: 1
+--- !u!114 &-363665020687906233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/dragones chinos menu
+  m_EditorClassIdentifier: 
+  Path: event:/dragones chinos menu
+  guid: a683f7c284195e48a258be69b728f3fb
+  Banks:
+  - {fileID: -5370984705666869841}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 32000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,24 +272,44 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -6324048333789479763}
-  - {fileID: -2945341322823666575}
-  - {fileID: -3561912827797416400}
-  - {fileID: -6108013558957910645}
+  - {fileID: 615699645167648267}
+  - {fileID: -1479633110744437211}
+  - {fileID: -5370984705666869841}
+  - {fileID: 9178743444464641042}
   EditorEvents:
-  - {fileID: 8280430780742683579}
-  - {fileID: 3049895263467726450}
-  - {fileID: -9108200096034504964}
-  - {fileID: 8783632000916016803}
-  - {fileID: -4348603080588744808}
-  - {fileID: 2966847638032262090}
+  - {fileID: 8589256858416710026}
+  - {fileID: -3302839085238441768}
+  - {fileID: -363665020687906233}
+  - {fileID: 5556931534388498613}
+  - {fileID: -7417798746402464587}
+  - {fileID: -4211276763758206047}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -6108013558957910645}
+  - {fileID: -1479633110744437211}
   StringsBanks:
-  - {fileID: -6324048333789479763}
-  stringsBankWriteTime: 637050971767911220
+  - {fileID: 615699645167648267}
+  stringsBankWriteTime: 637052123760474113
   cacheVersion: 3
+--- !u!114 &615699645167648267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/Dare/Documents/GitHub/punesnakes/FMOD/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637052123760474113
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1058
+  Exists: 1
 --- !u!114 &2966847638032262090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +356,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 40000
+--- !u!114 &5556931534388498613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ready c-voz
+  m_EditorClassIdentifier: 
+  Path: event:/ready c-voz
+  guid: 4506c00739488e4b81b8f1acdeb488d1
+  Banks:
+  - {fileID: 9178743444464641042}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4153
 --- !u!114 &8280430780742683579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +402,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4153
+--- !u!114 &8589256858416710026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/seleccion pj
+  m_EditorClassIdentifier: 
+  Path: event:/seleccion pj
+  guid: 12f036803080b2469fcdc39e7c9d3039
+  Banks:
+  - {fileID: -5370984705666869841}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 750
 --- !u!114 &8783632000916016803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,3 +448,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 750
+--- !u!114 &9178743444464641042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Play.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/Dare/Documents/GitHub/punesnakes/FMOD/Desktop/Play.bank
+  SubDir: 
+  lastModified: 637052123762452887
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 600192
+  Exists: 1
