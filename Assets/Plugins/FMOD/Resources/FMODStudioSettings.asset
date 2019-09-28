@@ -13,17 +13,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-<<<<<<< HEAD
   HasSourceProject: 0
   HasPlatforms: 0
-  sourceProjectPath: E:/Proyetos Fmod/PSnake/PSnake.fspro
-  SourceBankPathUnformatted: E:/Proyetos Fmod/PSnake/Build/Desktop
-=======
-  HasSourceProject: 1
-  HasPlatforms: 1
-  sourceProjectPath: FMOD/PSnake/PSnake.fspro
-  SourceBankPathUnformatted: FMOD/PSnake/Build
->>>>>>> master
+  sourceProjectPath: 
+  SourceBankPathUnformatted: FMOD/Desktop
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0
@@ -64,9 +57,7 @@ MonoBehaviour:
     Value: 0
   - Platform: 20
     Value: 0
-  BankDirectorySettings:
-  - Platform: 2
-    Value: Desktop
+  BankDirectorySettings: []
   VirtualChannelSettings:
   - Platform: 1
     Value: 1024
@@ -85,12 +76,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
-<<<<<<< HEAD
   - MMenu
   - Play
-=======
-  - juego
-  - Main Menu
->>>>>>> master
   BanksToLoad: []
   LiveUpdatePort: 9264
