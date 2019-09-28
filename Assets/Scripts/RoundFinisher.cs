@@ -6,6 +6,7 @@ using UnityEngine;
 public class RoundFinisher : MonoBehaviour
 {
     private Loader loader; 
+    private bool finishing = false;
 
     void Start()
     {
@@ -14,11 +15,44 @@ public class RoundFinisher : MonoBehaviour
 
     void Update()
     {
-        if (Player.LeftActive() <= 1) {
-            FinishRound();
+        if (Player.LeftActive() <= 1 && !finishing) {
+            finishing = true;
+            StartCoroutine(PlayerWon());
         }
     }
 
+    private IEnumerator PlayerWon() {
+        //Stop all snakes
+        for (int i = 0; i < 35; i++) {
+            Time.timeScale -= 0.02f;
+            yield return new WaitForFixedUpdate();
+        }
+        foreach (var snake in FindObjectsOfType<SnakeHead>()) {
+            if (snake.IsAlive) {
+                snake.Wait();
+            }
+        }
+        Time.timeScale = 1;
+
+        print("Someone won!");
+        yield return new WaitForSeconds(2f);
+        print("Press any key.");
+        yield return new WaitUntil(AnyKeyPress);
+
+        FinishRound();
+        /*foreach (var snake in FindObjectsOfType<SnakeHead>()) {
+            if (snake.IsAlive) {
+                snake.GetComponent<SnakeMovement>().DecelerateAndStop();
+            }
+        }*/
+        //Stop scoring
+        //show a "Player won" sign
+        //do Finish Round after key press.
+    }
+
+    private bool AnyKeyPress() {
+        return Input.anyKey;
+    }
     private void FinishRound() {
         ClearBoard();
         LoadPostGame();

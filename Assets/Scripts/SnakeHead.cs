@@ -112,6 +112,9 @@ public class SnakeHead : MonoBehaviour {
     public void Wait() {
         myMovement.Stop();
         IsActive = false;
+        if (follower) {
+            follower.StopAll();
+        }
     }
 
     public void SelfDestruct() {
