@@ -7,7 +7,7 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
     private int playerNumber;
     private Player myPlayer;
     private string inputAxis;
-
+    private float lastInput = 1f;
 
     void Start() {
         myPlayer = GetComponentInParent<Player>();
@@ -17,7 +17,15 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
 
     public float GetInput() {
         Debug.Log("Reading input from " + inputAxis);
-        return Input.GetAxisRaw(inputAxis);
+        float input = Input.GetAxisRaw(inputAxis);
+        if (Mathf.Abs(input) < 0.2f) {
+            input = lastInput;
+        }
+        else {
+            lastInput = input;
+        }
+
+        return input;
     }
 
     public bool GetJump()
