@@ -54,10 +54,6 @@ public class GameOptions : MonoBehaviour
 
     private void SetSlidersToLoadedValue() {
         Debug.Log("***** Loading options *****");
-        if (PlayerPrefs.HasKey(ROUNDS_KEY))
-        {
-            roundsSlider.value = rounds;
-        }
         Debug.Log("***************************");
     }
 
@@ -69,11 +65,8 @@ public class GameOptions : MonoBehaviour
     public static void SetPlayer(int playerNumber, bool selected) {
         isPlayerSelected[playerNumber] = selected;
     }
-    /*On macOS PlayerPrefs are stored in ~/Library/Preferences folder, 
-     * in a file named unity.[company name].[product name].plist, where company and product names are the names set up in Project Settings.
-     * The same .plist file is used for both Projects run in the Editor and standalone players.
-         On Windows, PlayerPrefs are stored in the registry under HKCU\Software\[company name]\[product name] key,
-         where company and product names are the names set up in Project Settings.*/
+
+
 
     public static void SavePlayers() {
         PlayerPrefs.SetInt(PLAYER1_KEY, boolToInt(isPlayerSelected[0]));

@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Game Mode")]
 public class GameMode : ScriptableObject
 {
-    public static float BODY_EXPAND_DELAY;
-    public static int BODY_FRAMES_BEHIND;
-    public static float MAX_FORWARD_SPEED;
-    public static float TURNING_RATE;
-    public static float SNAKE_SCALE;
-    public static float DELAY_UNTIL_MAXSPEED;
-    public static bool DRUNK_DRAGONS;
+    public static float BODY_EXPAND_DELAY = 0.5f;
+    public static int BODY_FRAMES_BEHIND = 15;
+    public static float MAX_FORWARD_SPEED = 2f;
+    public static float TURNING_RATE = 160f;
+    public static float SNAKE_SCALE = .5f;
+    public static float DELAY_UNTIL_MAXSPEED = 1f;
+    public static bool DRUNK_DRAGONS = false;
 
     public float delay;
     public int framesBehind;

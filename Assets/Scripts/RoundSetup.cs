@@ -33,7 +33,7 @@ public class RoundSetup : MonoBehaviour {
 
         }
 
-        SoundManager.Instance.PlayGameMusic();
+        //SoundManager.Instance.PlayGameMusic();
 
     }
 

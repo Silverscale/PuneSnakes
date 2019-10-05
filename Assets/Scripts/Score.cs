@@ -74,10 +74,10 @@ public class Score : MonoBehaviour
             FinishRound();
         }
 
-        else
-        {
-            SoundManager.Instance.PlayDeathSFX();
-        }
+        //else
+        //{
+        //    SoundManager.Instance.PlayDeathSFX();
+        //}
     }
 
     private void GivePoints()
