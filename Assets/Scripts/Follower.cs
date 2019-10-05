@@ -55,7 +55,7 @@ public class Follower : MonoBehaviour
 
     public void InitializeSteps(Vector2 target) {
         steps = new Queue<TrunkStep>();
-        for (int i = 0; i < GameOptions.framesBehind; i++) {
+        for (int i = 0; i < GameMode.BODY_FRAMES_BEHIND; i++) {
             Vector2 newStep = Vector2.Lerp(transform.position, target, (float)i / (float)stepsBehind);
             TrunkStep newTrunkStep = new TrunkStep(newStep, false);
             steps.Enqueue(newTrunkStep);
