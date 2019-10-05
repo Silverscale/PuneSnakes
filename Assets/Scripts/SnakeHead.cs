@@ -84,7 +84,7 @@ public class SnakeHead : MonoBehaviour {
             }
             IsAlive = false;
             IsActive = false;
-            myPlayer.Disable();
+            myPlayer.SetAsInactive();
         }
     }
 

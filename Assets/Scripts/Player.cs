@@ -48,8 +48,7 @@ public class Player : MonoBehaviour
     private void Register() {
         playerList.Add(this);
         if (!wasNumberSet) {
-            playerNumber = playerList.Count - 1;
-            wasNumberSet = true;
+            SetNumber(playerList.Count - 1);
         }
     }
 
@@ -58,7 +57,7 @@ public class Player : MonoBehaviour
         wasNumberSet = true;
     }
 
-    public void Disable() {
+    public void SetAsInactive() {
         active = false;
     }
 

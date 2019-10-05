@@ -17,9 +17,9 @@ public class SnakeMovement : MonoBehaviour
     private float speedMultiplier = 0f;
 
     private void Awake() {
-        moveSpeed = GameOptions.forward;
-        turnSpeed = GameOptions.turning;
-        maxSpeedDelay = GameOptions.maxSpeedDelay;
+        moveSpeed = GameMode.MAX_FORWARD_SPEED;
+        turnSpeed = GameMode.TURNING_RATE;
+        maxSpeedDelay = GameMode.DELAY_UNTIL_MAXSPEED;
 
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myController = GetComponent<ISnakeController>();

@@ -14,7 +14,7 @@ public class SnakeAutoExpand : MonoBehaviour
 
     void Awake() {
         mySnakeHead = GetComponent<SnakeHead>();
-        autoExpandCDInSeconds = GameOptions.delay;
+        autoExpandCDInSeconds = GameMode.BODY_EXPAND_DELAY;
     }
 
     //Controls when the snake should start or stop expanding, based on mySnakeHead.IsActive
@@ -47,7 +47,7 @@ public class SnakeAutoExpand : MonoBehaviour
                     mySnakeHead.TailTransform().rotation,
                     transform.parent);
 
-        newFollower.transform.localScale = Vector3.one * GameOptions.snakeScale;
+        newFollower.transform.localScale = Vector3.one * GameMode.SNAKE_SCALE;
         mySnakeHead.AddFollower(newFollower);
     }
 }
