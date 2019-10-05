@@ -85,6 +85,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset
-*.asset
 fmod_editor.log
