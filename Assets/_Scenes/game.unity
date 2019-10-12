@@ -2847,6 +2847,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 554440681}
     m_Modifications:
+    - target: {fileID: 6779863405352561191, guid: 4e39379378487124fa77d84994ed82dc,
+        type: 3}
+      propertyPath: m_Name
+      value: ScoreBoard
+      objectReference: {fileID: 0}
     - target: {fileID: 6779863405352561208, guid: 4e39379378487124fa77d84994ed82dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2951,11 +2956,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6779863405352561191, guid: 4e39379378487124fa77d84994ed82dc,
-        type: 3}
-      propertyPath: m_Name
-      value: ScoreBoard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e39379378487124fa77d84994ed82dc, type: 3}

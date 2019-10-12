@@ -37,7 +37,7 @@ public class Follower : MonoBehaviour
         }
     }
     public void AddStep(Vector2 step, bool high) {
-        TrunkStep tempStep = new TrunkStep(step, high);
+        TrunkStep tempStep = new TrunkStep(step, high); //TODO: En lugar de crear uno nuevo, usar el que ya estamos usando.
         steps.Enqueue(tempStep);
     }
 

@@ -11,7 +11,7 @@ public class SnakeMovement : MonoBehaviour
 
     private ISnakeController myController;
     private Rigidbody2D myRigidbody2D;
-    private bool isMoving = false;
+    public bool isMoving = false; //TODO: EMPROLIJAR
     private bool isAccelerating = false;
     private bool isDecelerating = false;
     private float speedMultiplier = 0f;
@@ -75,12 +75,5 @@ public class SnakeMovement : MonoBehaviour
         isAccelerating = true;
     }
 
-    public bool IsJumping()
-    {
-        if (isMoving)
-        {
-            return myController.GetJump();
-        }
-        else return false;
-    }
+    
 }

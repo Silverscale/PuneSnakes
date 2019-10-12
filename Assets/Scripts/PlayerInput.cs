@@ -16,13 +16,13 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
     }
 
     public float GetInput() {
-        Debug.Log("Reading input from " + inputAxis);
+        //Debug.Log("Reading input from " + inputAxis);
         return Input.GetAxisRaw(inputAxis);
     }
 
     public bool GetJump()
     {
-        Debug.Log("Getting Jump");
+        //Debug.Log("Getting Jump");
 
         if (myPlayer.playerNumber == 0)
         {

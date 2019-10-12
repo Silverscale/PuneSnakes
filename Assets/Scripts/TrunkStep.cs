@@ -31,8 +31,8 @@ public class TrunkStep
         
     }
 
-    public bool IsHigh()
+    /*public bool IsHigh()
     {
         return high;
-    }
+    }*/
 }

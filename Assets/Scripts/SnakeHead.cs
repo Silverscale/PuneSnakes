@@ -11,9 +11,8 @@ public class SnakeHead : MonoBehaviour {
     public int followerCount { get; private set; } = 0;
     private Transform tail;
 
-    private bool onAir;
-    private int airTime;
-    [SerializeField] private int jumpLength = 100;
+    bool onAir;
+   
 
     void Awake() {
         myMovement = GetComponent<SnakeMovement>();
@@ -24,18 +23,7 @@ public class SnakeHead : MonoBehaviour {
 
     void FixedUpdate() {
 
-        //Jumpy stuff horrible
-        airTime--;
-        if (airTime <=0)
-        {
-            onAir = false;
-            bool isJumping = myMovement.IsJumping();
-            if (isJumping)
-            {
-                Jump();
-            }
-
-        }
+        
         
         //
         if (follower) {
@@ -65,7 +53,7 @@ public class SnakeHead : MonoBehaviour {
                 //only kill if im not colliding with my follower
                 if (col.gameObject != follower.gameObject)
                 {
-                    if (!onAir) //only collide if down
+                    if (!onAir) //only collide if down TODO: MOVE TO PUNCHI
                     this.Kill();
                 }
                   
@@ -88,14 +76,9 @@ public class SnakeHead : MonoBehaviour {
         }
     }
 
-    public void Jump()
-    {
-        Debug.Log("YOU JUMPED");
-            airTime = jumpLength;
-        onAir = true;
-        
+   
 
-    }
+
     public Transform TailTransform() {
         return tail;
     }
@@ -123,5 +106,26 @@ public class SnakeHead : MonoBehaviour {
             follower.SelfDestruct();
         }
         Destroy(gameObject);
+    }
+
+
+    //PUNCHI: JUMPING
+
+    public void Jump() //TODO: MOVE TO PUNCHI
+    {
+        Debug.Log("YOU JUMPED");
+        //  airTime = jumpLength;
+        onAir = true;
+
+
+    }
+
+    public void Land() //TODO: MOVE TO PUNCHI
+    {
+        Debug.Log("YOU LANDED");
+        //  airTime = jumpLength;
+        onAir = false;
+
+
     }
 }
