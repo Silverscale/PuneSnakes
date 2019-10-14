@@ -25,7 +25,8 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
     public bool GetJump()
     {
         //Debug.Log("Getting Jump");
-        return Input.GetKeyDown(inputAction);
+        
+        return Input.GetButtonDown(inputAction);
     }
 
 }
