@@ -7,12 +7,14 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
     private int playerNumber;
     private Player myPlayer;
     private string inputAxis;
+    private string inputAction;
 
 
     void Start() {
         myPlayer = GetComponentInParent<Player>();
         playerNumber = myPlayer.playerNumber;
         inputAxis = "Player" + playerNumber;
+        inputAction = "Fire" + playerNumber;
     }
 
     public float GetInput() {
@@ -23,16 +25,7 @@ public class PlayerInput : MonoBehaviour, ISnakeController   {
     public bool GetJump()
     {
         //Debug.Log("Getting Jump");
-
-        if (myPlayer.playerNumber == 0)
-        {
-            return Input.GetKeyDown(KeyCode.W);
-        }
-        else if (myPlayer.playerNumber == 1)
-        {
-            return Input.GetKeyDown(KeyCode.UpArrow);
-        }
-        else return false;
+        return Input.GetKeyDown(inputAction);
     }
 
 }
