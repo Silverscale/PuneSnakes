@@ -10,14 +10,18 @@ public class Punchi : MonoBehaviour
 
     //JUMP
     //private bool onAir;
-    private int airTime;
-    [SerializeField] private int jumpLength = 100;
+    private float airTime;
+    [SerializeField] private int jumpLength = 200;
 
     private SnakeHead myHead;
     private Animator myAnimator;
     private SnakeMovement myMovement;
-    
+
+    bool isJumping = false;
+
     //
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,7 @@ public class Punchi : MonoBehaviour
     void Awake() {
 
         myController = GetComponent<ISnakeController>();
+        
         //onAir = false;
 
     }
@@ -38,39 +43,48 @@ public class Punchi : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Jumpy stuff horrible
-        if (airTime > 0)
-        {
-            airTime--;
-        }
-        
-        if (airTime < 0)
-        {
-           // onAir = false;
-            bool isJumping = IsJumping();
-            if (isJumping)
-            {
-                airTime = jumpLength;
-                myHead.Jump();
-                myAnimator.SetTrigger("Jump");
-                
-            }
-            else
-            {
-                myHead.Land();
-                airTime = 0;
-            }
+       
 
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //   Debug.Log("AirTime=" + airTime);
+        //Jumpy stuff horrible
+        if (airTime > 0)
+        {
+
+            airTime--;
+
+            if (airTime == 1)
+            {
+                myHead.Land();
+                //airTime = 0;
+
+            }
+
+        }
+
+
+        else
+        {
+            // onAir = false;
+            isJumping = IsJumping();
+            if (isJumping)
+            {
+
+                airTime = jumpLength;
+                myHead.Jump();
+                myAnimator.SetTrigger("Jump");
+
+            }
+        }
+
+
     }
 
-    public bool IsJumping() 
+        public bool IsJumping() 
     {
         if (myMovement.isMoving)
         {
