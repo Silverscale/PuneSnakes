@@ -43,7 +43,10 @@ public class GameModeManager : MonoBehaviour
         newMode.maxSpeedDelay = maxSpeedDelaySlider.value;
         newMode.drunkDragons = drunkDragonsToggle.isOn;
 
+#if UNITY_EDITOR
         AssetDatabase.CreateAsset(newMode, "Assets/Resources/GameModes/" + newMode.name + ".asset");
+        //some code here that uses something from the UnityEditor namespace
+# endif
         gameModeList.CreateButton(newMode);
     }
 
