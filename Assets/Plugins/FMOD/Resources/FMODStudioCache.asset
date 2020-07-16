@@ -1,29 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6147783000270284807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ready c-voz
-  m_EditorClassIdentifier: 
-  Path: event:/ready c-voz
-  guid: 4506c00739488e4b81b8f1acdeb488d1
-  Banks:
-  - {fileID: 8732689297423024788}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 4153
---- !u!114 &-4757303328050300903
+--- !u!114 &-6432886295426109531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,7 +15,7 @@ MonoBehaviour:
   Path: event:/seleccion pj
   guid: 12f036803080b2469fcdc39e7c9d3039
   Banks:
-  - {fileID: 847770825117497904}
+  - {fileID: -1002072198074399236}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -46,27 +23,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 750
---- !u!114 &-4441957333943792988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: C:/GitHub/PuneSnakes/FMOD/Desktop/Master.strings.bank
-  SubDir: 
-  lastModified: 637060669939931952
-  LoadResult: 0
-  FileSizes:
-  - Name: 
-    Value: 1058
-  Exists: 1
---- !u!114 &-1177333570434309937
+--- !u!114 &-2006746917153587181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,61 +43,7 @@ MonoBehaviour:
   - Name: 
     Value: 1000
   Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: -4441957333943792988}
-  - {fileID: -1177333570434309937}
-  - {fileID: 847770825117497904}
-  - {fileID: 8732689297423024788}
-  EditorEvents:
-  - {fileID: -4757303328050300903}
-  - {fileID: 1403181921900548663}
-  - {fileID: 1847113667496546708}
-  - {fileID: -6147783000270284807}
-  - {fileID: 475515450701692225}
-  - {fileID: 3619889328563690635}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: -1177333570434309937}
-  StringsBanks:
-  - {fileID: -4441957333943792988}
-  stringsBankWriteTime: 637060669939931952
-  cacheVersion: 3
---- !u!114 &475515450701692225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/dragones chinos
-  m_EditorClassIdentifier: 
-  Path: event:/dragones chinos
-  guid: a9de4395a00e7648bfe44ea9a13ab8bd
-  Banks:
-  - {fileID: 8732689297423024788}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 40000
---- !u!114 &847770825117497904
+--- !u!114 &-1002072198074399236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,7 +63,7 @@ MonoBehaviour:
   - Name: 
     Value: 477504
   Exists: 1
---- !u!114 &1403181921900548663
+--- !u!114 &-991055670636132569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,21 +72,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/paso cursor
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: event:/paso cursor
-  guid: a2951a7c6d1f2c48bec8a1d3ff90f87e
-  Banks:
-  - {fileID: 847770825117497904}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 750
---- !u!114 &1847113667496546708
+  Path: C:/GitHub/PuneSnakes/FMOD/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637060669939931952
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1058
+  Exists: 1
+--- !u!114 &-898050518035349503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,7 +98,7 @@ MonoBehaviour:
   Path: event:/dragones chinos menu
   guid: a683f7c284195e48a258be69b728f3fb
   Banks:
-  - {fileID: 847770825117497904}
+  - {fileID: -1002072198074399236}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -206,7 +106,61 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 32000
---- !u!114 &3619889328563690635
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -991055670636132569}
+  - {fileID: -2006746917153587181}
+  - {fileID: -1002072198074399236}
+  - {fileID: 8838650822285482746}
+  EditorEvents:
+  - {fileID: -6432886295426109531}
+  - {fileID: 6638829677400099361}
+  - {fileID: -898050518035349503}
+  - {fileID: 1738883026580188754}
+  - {fileID: 8708905125300441222}
+  - {fileID: 4780955165438450730}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -2006746917153587181}
+  StringsBanks:
+  - {fileID: -991055670636132569}
+  stringsBankWriteTime: 637060669939931952
+  cacheVersion: 3
+--- !u!114 &1738883026580188754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ready c-voz
+  m_EditorClassIdentifier: 
+  Path: event:/ready c-voz
+  guid: 4506c00739488e4b81b8f1acdeb488d1
+  Banks:
+  - {fileID: 8838650822285482746}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4153
+--- !u!114 &4780955165438450730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,7 +175,7 @@ MonoBehaviour:
   Path: event:/muerto
   guid: c17a91c27bb00e40a7f94bbf863d7b26
   Banks:
-  - {fileID: 8732689297423024788}
+  - {fileID: 8838650822285482746}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -229,7 +183,53 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1500
---- !u!114 &8732689297423024788
+--- !u!114 &6638829677400099361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/paso cursor
+  m_EditorClassIdentifier: 
+  Path: event:/paso cursor
+  guid: a2951a7c6d1f2c48bec8a1d3ff90f87e
+  Banks:
+  - {fileID: -1002072198074399236}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 750
+--- !u!114 &8708905125300441222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/dragones chinos
+  m_EditorClassIdentifier: 
+  Path: event:/dragones chinos
+  guid: a9de4395a00e7648bfe44ea9a13ab8bd
+  Banks:
+  - {fileID: 8838650822285482746}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 40000
+--- !u!114 &8838650822285482746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
