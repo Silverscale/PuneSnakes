@@ -84,7 +84,7 @@ public class Score : MonoBehaviour
     {
         foreach (Player p in alivePlayers)
         {
-            scoreboard[p.playerNumber]++;
+            scoreboard[p.idNumber]++;
         }
         Debug.Log("Point given");
     }
