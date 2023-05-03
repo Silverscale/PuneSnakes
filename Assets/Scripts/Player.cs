@@ -5,7 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     static private List<Player> playerList = new List<Player>();
-    public int playerNumber { get; private set;}
+
+    public int idNumber { get; private set; }
+    public Color color { get; private set; }
+
     private bool active = true;
     private bool wasNumberSet = false;
 
@@ -40,7 +43,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         Register();
-        transform.name = "Player " + playerNumber;
+        color = Random.ColorHSV();
+        transform.name = "Player " + idNumber;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -53,7 +57,7 @@ public class Player : MonoBehaviour
     }
 
     public void SetNumber(int number) {
-        playerNumber = number;
+        idNumber = number;
         wasNumberSet = true;
     }
 

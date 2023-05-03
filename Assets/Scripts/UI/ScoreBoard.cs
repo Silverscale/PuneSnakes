@@ -39,7 +39,7 @@ public class ScoreBoard : MonoBehaviour
     private void UpdateScoreString() {
         string scoreString = "";
         foreach (var player in Player.GetList()) {
-            scoreString += "Player " + player.playerNumber +": " + player.Score + "\n";
+            scoreString += "Player " + player.idNumber +": " + player.Score + "\n";
         };
         scoreTMP.text = scoreString;
     }

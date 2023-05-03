@@ -12,7 +12,11 @@ public class SnakeAutoExpand : MonoBehaviour
     private Coroutine expanding;
     private bool ImExpanding = false;
 
+    private SnakeFactory factory;
+
     void Awake() {
+        factory = FindObjectOfType<SnakeFactory>();
+
         mySnakeHead = GetComponent<SnakeHead>();
         autoExpandCDInSeconds = GameMode.BODY_EXPAND_DELAY;
     }
@@ -41,11 +45,17 @@ public class SnakeAutoExpand : MonoBehaviour
 
     //Spawns a bodyChunk and gives it to SnakeHead to add it to the line.
     private void SpawnFollower() {
-        Follower newFollower = GameObject.Instantiate<Follower>(
+        Follower newFollower = factory.NewBody(mySnakeHead.GetPlayerID()).GetComponent<Follower>();
+
+        newFollower.transform.position = mySnakeHead.TailTransform().position;
+        newFollower.transform.rotation = mySnakeHead.TailTransform().rotation;
+        newFollower.transform.SetParent(transform.parent);
+
+        /*Follower newFollower = GameObject.Instantiate<Follower>(
                     bodyChunk,
                     mySnakeHead.TailTransform().position,
                     mySnakeHead.TailTransform().rotation,
-                    transform.parent);
+                    transform.parent);*/
 
         newFollower.transform.localScale = Vector3.one * GameMode.SNAKE_SCALE;
         mySnakeHead.AddFollower(newFollower);

@@ -43,9 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Dragon Body
+  - name: Dragon
     uniqueID: 1934526477
     locked: 0
-  - name: Dragon Head
-    uniqueID: 2143907949
+  - name: UI
+    uniqueID: 1696354455
     locked: 0

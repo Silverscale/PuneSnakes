@@ -104,6 +104,10 @@ public class SnakeHead : MonoBehaviour {
         myPlayer = player;
     }
 
+    public int GetPlayerID() {
+        return myPlayer.idNumber;
+    }
+
     public void Go() {
         IsActive = true;
         myMovement.Resume();
