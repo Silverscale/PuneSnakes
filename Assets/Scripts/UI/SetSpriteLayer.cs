@@ -1,19 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SetSpriteLayer : MonoBehaviour
 {
-    [SerializeField] private int sortingStartingNumber = 1000;
-    // Start is called before the first frame update
+    [SerializeField] int layerNumberStepMultiplier = 2;
+    [SerializeField] int layerNumberOffset = 0;
+    private int sortingStartingNumber = 50;
+    private int numberInLine;
+
+
     void Start()
     {
         SpriteRenderer myRenderer = GetComponent<SpriteRenderer>();
-        SpriteRenderer colorRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
 
-        int positionInTheLine = GetComponentInParent<Follower>().numberInLine;
-        int sortingOrder = sortingStartingNumber - (positionInTheLine * 2);
+        int sortingOrder = sortingStartingNumber - (numberInLine * layerNumberStepMultiplier) + layerNumberOffset;
         myRenderer.sortingOrder = sortingOrder;
-        colorRenderer.sortingOrder = sortingOrder + 1;
+    }
+
+    public void SetNumberInLine(int linePosition) {
+        numberInLine= linePosition;
     }
 }
