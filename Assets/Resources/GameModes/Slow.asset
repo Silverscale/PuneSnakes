@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c3a6ecd3245df41bae80064dffd5f9, type: 3}
   m_Name: Slow
   m_EditorClassIdentifier: 
+  modeName: Training
   delay: 0.5
   framesBehind: 10
   forward: 2.5300925
@@ -19,3 +20,5 @@ MonoBehaviour:
   snakeScale: 0.73404855
   maxSpeedDelay: 1.4872699
   drunkDragons: 0
+  description: Use this mode to practice the controls, and to get a feel of the game.
+    Don't expect much excitment. Ideal for Grandma.
